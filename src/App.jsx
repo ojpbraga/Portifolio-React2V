@@ -1,7 +1,7 @@
-import { ShaderGradientCanvas, ShaderGradient } from 'shadergradient';
-import * as reactSpring from '@react-spring/three'
-import * as drei from '@react-three/drei'
-import * as fiber from '@react-three/fiber'
+// import { ShaderGradientCanvas, ShaderGradient } from 'shadergradient';
+// import * as reactSpring from '@react-spring/three'
+// import * as drei from '@react-three/drei'
+// import * as fiber from '@react-three/fiber'
 import avatar from './images/avatar.mp4'
 import Particles from './components/Particles.tsx';
 import joaoPicture from './images/me.png'
@@ -29,12 +29,12 @@ function App() {
           </div>
 
           <div className='w-[95vw] xl:w-[85vw] h-[20dvh] self-end'>
-            <ShaderGradientCanvas
+            {/* <ShaderGradientCanvas
               importedFiber={{ ...fiber, ...drei, ...reactSpring }}
               style={{borderRadius: '30px'}}
             >
               <ShaderGradient color1='#000055' color2='#0000BF' color3='#0000BF' animate='on' type='plane' cDistance={2} cAzimuthAngle={0} cPolarAngle={90} brightness={4} uDensity={0.5} positionX={4}/>
-            </ShaderGradientCanvas>
+            </ShaderGradientCanvas> */}
           </div>
         </div>
 
