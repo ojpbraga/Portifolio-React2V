@@ -53,6 +53,19 @@ function App() {
         </div>
         
       </section>
+
+      <section className='grid place-items-center'>
+        <div className='h-[90dvh] w-[90dvw] bg-[#1B1B1B] rounded-[30px] p-10'>
+          <h1 className='font-bold text-[11vw]'>Frameworks</h1>
+          <div>
+
+          </div>
+        </div>
+      </section>
+
+      <section className='h-screen'>
+
+      </section>
     </main>
   )
 }
