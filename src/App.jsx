@@ -6,21 +6,21 @@ import avatar from './images/avatar.mp4'
 import Particles from './components/Particles.tsx';
 import joaoPicture from './images/me.png'
 import { BorderBeam } from './components/BorderBeam.tsx'
+import Slides from './components/Slide.jsx';
 
 function App() {
-  const { innerWidth: width, innerHeight: height } = window;
 
   return (
     <main className='grid gap-32 justify-center'>
-      <Particles className='fixed z-[-1] h-[100dvh] w-[100%]'/>
+      <Particles className='fixed z-[-1] h-[100vh] w-[100%]'/>
 
-      <section className="flex flex-col justify-between h-[105dvh] items-center">
+      <section className="flex flex-col justify-between h-[105vh] items-center">
 
         <div className="h-[70dvh] grid place-items-center w-[70vw] md:w-[60vw] xl:w-full">
           <h1 className="text-[15vw] md:text-[12vw] xl:text-[6rem] xl:text-center font-bold leading-[15vw] md:leading-[12vw] xl:leading-[100px]">Your next Frontend<br/>Developer<span className="text-[#405CD9]">.</span></h1>
         </div>
 
-        <div className='relative flex justify-center h-[40dvh]'>
+        <div className='relative flex justify-center h-[40vh]'>
           <div className='w-[60vw] md:w-[35vw] xl:w-[16vw] z-10 top-0 absolute'>
             <video className='rounded-[30px]' loop autoPlay muted>
               <source src={avatar} />
@@ -28,7 +28,7 @@ function App() {
 
           </div>
 
-          <div className='w-[95vw] xl:w-[85vw] h-[20dvh] self-end'>
+          <div className='w-[95vw] xl:w-[85vw] h-[20vh] self-end'>
             {/* <ShaderGradientCanvas
               importedFiber={{ ...fiber, ...drei, ...reactSpring }}
               style={{borderRadius: '30px'}}
@@ -40,14 +40,14 @@ function App() {
 
       </section>
 
-      <section className='h-screen w-full flex flex-col items-center justify-center gap-2 xl:flex-row xl:w-[85vw] xl:gap-[5vw]'>
+      <section className='h-screen flex flex-col items-center justify-center gap-2 xl:flex-row xl:w-[85vw] xl:gap-[5vw] overflow-hidden'>
 
         <div className=' relative w-[60vw] md:w-[40vw] xl:w-[25vw] bg-white/10 rounded-[30px]'>
           <img className='rounded-[30px]' src={joaoPicture} alt=""/>
           <BorderBeam colorTo='#d9d9d9' colorFrom='#fff'/>
         </div>
 
-        <div className='w-[80vw]'>
+        <div className='w-[80vw] xl:w-[40vw]'>
           <h1 className='text-[18vw] md:text-[14vw] xl:text-[8vw] xl:text-start font-bold text-center'>I'm João.</h1>
           <p className='text-[9vw] md:text-[6vw] xl:text-[3vw] text-[#A1A1A1] font-bold'>A student of <span className='text-[#E1E1E1]'>software engineer</span>. I live in Belo Horizonte - MG <span>and...</span>👈</p>
         </div>
@@ -55,17 +55,25 @@ function App() {
       </section>
 
       <section className='grid place-items-center'>
-        <div className='h-[90dvh] w-[90dvw] bg-[#1B1B1B] rounded-[30px] p-10'>
-          <h1 className='font-bold text-[11vw]'>Frameworks</h1>
-          <div>
+        <div className='h-[90vh] w-[90vw] bg-[#1B1B1B] rounded-[30px] p-10 xl:pt-5'>
+          <h1 className='font-bold text-[11vw] md:text-[8vw] xl:text-[5vw]'>Frameworks</h1>
 
+          <div>
+            
           </div>
+
         </div>
       </section>
 
-      <section className='h-screen'>
+      <section className='h-[100vh] w-full flex flex-col items-center'>
+        <h1 className='text-[18vw] font-bold'>Projects</h1>
+        <div className='w-[80vw] h-[80vh]'>
+        <Slides/>
 
+        </div>
       </section>
+
+      
     </main>
   )
 }
