@@ -89,9 +89,9 @@ function App() {
         </div>
       </section>
 
-      <section className='h-[100vh] w-[100vw] flex flex-col items-center overflow-hidden'>
-        <h1 className='text-[18vw] md:text-[16vw] font-bold'>Projects</h1>
-        <div className='w-[80vw] h-[80vh]'>
+      <section className='h-[100vh] flex flex-col items-center overflow-hidden'>
+        <h1 className='text-[18vw] md:text-[16vw] font-bold xl:text-[6vw]'>Projects</h1>
+        <div className='w-[80vw] h-[80vh] xl:w-[70vw] xl:h-[70vh]'>
           <Slides slides={slidesObj}/>
 
         </div>

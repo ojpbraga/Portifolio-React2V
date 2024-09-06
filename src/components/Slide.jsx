@@ -27,21 +27,21 @@ export default function Slides({slides}) {
       className='w-full h-full'
     >
       {slides.map(({bgColor, imgNotebook, imgLogo, title, description, githubLink, figmaLink, siteLink}) => (
-        <SwiperSlide key={title} style={{background: bgColor}} className='rounded-3xl justify-between flex flex-col h-full pt-[5vh] pb-[2vh]'>
+        <SwiperSlide key={title} style={{background: bgColor}} className='rounded-3xl justify-between flex flex-col h-full pt-[5vh] pb-[2vh] xl:p-6 xl:flex-row-reverse cursor-grab'>
           <div className='grid place-items-center'>
-            <img src={getImageURL(imgNotebook)} className='md:w-[70vw]' alt="" />
+            <img src={getImageURL(imgNotebook)} className='md:w-[70vw] xl:w-[100vw]' alt="" />
           </div>
 
-          <div className='flex flex-col justify-between h-[45vh] pr-4 pl-4 md:pr-10 md:pl-10'>
+          <div className='flex flex-col justify-between h-[45vh] xl:h-full pr-4 pl-4 md:pr-10 md:pl-10 xl:p-0'>
             {/* Div text */}
             <div className='grid gap-2'>
               {/* title */}
               <div className='flex items-center gap-2 justify-center md:justify-start'>
-                <img src={getImageURL(imgLogo)} className='md:w-[3vw]' alt="" />
-                <h1 className='uppercase text-[8vw] md:text-[6vw] font-bold justify-self-center'>{title}</h1>
+                <img src={getImageURL(imgLogo)} className='md:w-[3vw] xl:w-[2vw]' alt="" />
+                <h1 className='uppercase text-[8vw] md:text-[6vw] xl:text-[3vw] font-bold justify-self-center'>{title}</h1>
               </div>
               {/* end title */}
-              <p className='font-semibold text-[5vw] md:text-[4vw]'>{description}</p>
+              <p className='font-semibold text-[5vw] md:text-[4vw] xl:text-[2vw]'>{description}</p>
             </div>
             {/* End div text */}
 
@@ -52,7 +52,7 @@ export default function Slides({slides}) {
                 <a href={figmaLink} className='bg-[#fff] w-14 h-10 rounded-r-3xl grid place-items-center'><img className='w-4' src={figma} alt="" /></a>
               </div>
 
-              <a href={siteLink} className='flex gap-1 uppercase text-[3.5vw] md:text-[2vw] font-bold bg-[#190D21] w-28 rounded-3xl h-11 items-center justify-center'>
+              <a href={siteLink} className='flex gap-1 uppercase text-[3.5vw] md:text-[2vw] xl:text-[1vw] font-bold bg-[#190D21] w-28 rounded-3xl h-11 items-center justify-center'>
                 <img src={share} className='w-4' alt="" />
                 Visitar
               </a>
