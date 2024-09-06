@@ -8,6 +8,30 @@ import joaoPicture from './images/me.png'
 import { BorderBeam } from './components/BorderBeam.tsx'
 import Slides from './components/Slide.jsx';
 
+
+const slidesObj = [
+  {
+    bgColor:"#30193E",
+    imgNotebook: '../images/mouse-cursor.png', 
+    imgLogo: '../images/mouse.png',
+    title: "Mouse Cursor", 
+    description: "Se for um site específico que foi lançado após recomendaria procurar mecanismo de busca ou em comunidades.", 
+    githubLink: "www.github.com", 
+    figmaLink: "www.figma.com", 
+    siteLink: "www.teste.com",
+  },
+  {
+    bgColor:"#f6ff71",
+    imgNotebook: '../images/mouse-cursor.png', 
+    imgLogo: '../images/mouse.png',
+    title: "Mouse Cursor", 
+    description: "Se for um site específico que foi lançado após recomendaria procurar mecanismo de busca ou em comunidades.", 
+    githubLink: "www.github.com", 
+    figmaLink: "www.figma.com", 
+    siteLink: "www.teste.com",
+  },
+]
+
 function App() {
 
   return (
@@ -68,7 +92,7 @@ function App() {
       <section className='h-[100vh] w-full flex flex-col items-center'>
         <h1 className='text-[18vw] font-bold'>Projects</h1>
         <div className='w-[80vw] h-[80vh]'>
-        <Slides/>
+          <Slides slides={slidesObj}/>
 
         </div>
       </section>
