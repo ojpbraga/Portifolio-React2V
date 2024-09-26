@@ -7,6 +7,7 @@ import Particles from './components/Particles.tsx';
 import joaoPicture from './images/me.png'
 import { BorderBeam } from './components/BorderBeam.tsx'
 import Slides from './components/Slide.jsx';
+import { useEffect, useState } from 'react';
 
 
 const slidesObj = [
@@ -33,6 +34,8 @@ const slidesObj = [
 ]
 
 function App() {
+
+  const [profileDetails, setProfileDetails] = useState(false);
 
   return (
     <main className='grid gap-32 justify-center'>
@@ -64,7 +67,43 @@ function App() {
 
       </section>
 
-      <section className='h-screen flex flex-col items-center justify-center gap-2 xl:flex-row xl:w-[85vw] xl:gap-[5vw] overflow-hidden'>
+      <section className='h-screen flex flex-col items-center justify-center gap-2 xl:flex-row xl:w-[85vw] xl:gap-[5vw] overflow-hidden my-0 mx-auto'>
+
+        {
+        !profileDetails && 
+          <div className='absolute z-10 w-[90vw] h-[90vh] bg-[#1B1B1B] rounded-[30px] flex justify-center p-5'>
+
+            <div className="absolute w-12 h-12 bg-slate-600 right-5 rounded-[100px] grid place-items-center" onClick={() => setProfileDetails(state => !state)}>
+              <div className='h-2 w-7 rounded-full bg-white'></div>
+            </div>
+
+            <div className='flex flex-col gap-5'>
+              <div className='self-center relative w-[50vw] md:w-[40vw] xl:w-[25vw] bg-white/10 rounded-[30px]'>
+                <img className='rounded-[30px]' src={joaoPicture} alt=""/>
+                <BorderBeam colorTo='#d9d9d9' colorFrom='#fff'/>
+              </div>
+
+              <div className='grid gap-1'>
+                <h1 className='font-bold text-[6vw]'>João Pedro O. Braga</h1>
+                <p>Se for um site específico que foi lançado após recomendaria procurar mecanismo de busca ou em comunidades.</p>
+                <div className=''>
+                  <div className='grid grid-cols-2'>
+                    <p>Belo Horizonte</p>
+                    <p>22/12/2005</p>
+                    <a href="/">www.github.com</a>
+                    <a href="/">www.linkedln.com</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Texts about me and graduation here */}
+            <div>
+              <p></p>
+            </div>
+
+          </div>
+        }
 
         <div className=' relative w-[60vw] md:w-[40vw] xl:w-[25vw] bg-white/10 rounded-[30px]'>
           <img className='rounded-[30px]' src={joaoPicture} alt=""/>
@@ -73,7 +112,7 @@ function App() {
 
         <div className='w-[80vw] xl:w-[40vw]'>
           <h1 className='text-[18vw] md:text-[14vw] xl:text-[8vw] xl:text-start font-bold text-center'>I'm João.</h1>
-          <p className='text-[9vw] md:text-[6vw] xl:text-[3vw] text-[#A1A1A1] font-bold'>A student of <span className='text-[#E1E1E1]'>software engineer</span>. I live in Belo Horizonte - MG <span>and...</span>👈</p>
+          <p className='text-[9vw] md:text-[6vw] xl:text-[3vw] text-[#A1A1A1] font-bold'>A student of <span className='text-[#E1E1E1]'>software engineer</span>. I live in Belo Horizonte - MG <span onClick={() => setProfileDetails(state => !state)}>and...</span>👈</p>
         </div>
         
       </section>
