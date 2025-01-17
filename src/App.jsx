@@ -39,6 +39,7 @@ function App() {
 
   return (
     <main className='grid gap-32 justify-center'>
+      {/* Desativar por enquanto */}
       <Particles className='fixed z-[-1] h-[100vh] w-[100%]'/>
 
       <section className="flex flex-col justify-between h-[105vh] items-center">
@@ -70,36 +71,62 @@ function App() {
       <section className='h-screen flex flex-col items-center justify-center gap-2 xl:flex-row xl:w-[85vw] xl:gap-[5vw] overflow-hidden my-0 mx-auto'>
 
         {
-        !profileDetails && 
-          <div className='absolute z-10 w-[90vw] h-[90vh] bg-[#1B1B1B] rounded-[30px] flex justify-center p-5'>
+        profileDetails && 
+          <div className='absolute z-10 w-[90vw] h-[90vh] bg-[#1B1B1B] rounded-[30px] flex flex-col p-5 gap-[2vh] overflow-scroll xl:overflow-hidden xl:flex-row xl:p-0'>
 
-            <div className="absolute w-12 h-12 bg-slate-600 right-5 rounded-[100px] grid place-items-center" onClick={() => setProfileDetails(state => !state)}>
+            <div className="absolute w-12 h-12 bg-slate-600 right-5 rounded-[100px] grid place-items-center xl:top-5" onClick={() => setProfileDetails(state => !state)}>
               <div className='h-2 w-7 rounded-full bg-white'></div>
             </div>
 
-            <div className='flex flex-col gap-5'>
-              <div className='self-center relative w-[50vw] md:w-[40vw] xl:w-[25vw] bg-white/10 rounded-[30px]'>
-                <img className='rounded-[30px]' src={joaoPicture} alt=""/>
+            {/* Picture and data*/}
+            <div className='flex flex-col gap-5 xl:w-[25vw] xl:m-5'>
+              <div className='self-center relative w-[50vw] md:w-[40vw] xl:w-[15vw] xl:h-[35vh] bg-white/10 rounded-[30px] place-items-center '>
+                <img className='rounded-[30px] xl:h-[35vh]' src={joaoPicture} alt=""/>
                 <BorderBeam colorTo='#d9d9d9' colorFrom='#fff'/>
               </div>
 
-              <div className='grid gap-1'>
-                <h1 className='font-bold text-[6vw]'>João Pedro O. Braga</h1>
-                <p>Se for um site específico que foi lançado após recomendaria procurar mecanismo de busca ou em comunidades.</p>
-                <div className=''>
-                  <div className='grid grid-cols-2'>
-                    <p>Belo Horizonte</p>
-                    <p>22/12/2005</p>
-                    <a href="/">www.github.com</a>
-                    <a href="/">www.linkedln.com</a>
+              {/* Profile */}
+              <div className='grid gap-2'>
+                <h1 className='font-bold text-[6vw] xl:text-[1.6vw]'>João Pedro O. Braga</h1>
+                <div className='grid'>
+                  <div className='grid grid-cols-2 gap-1'>
+                    <p className='text-sm'>
+                    Belo Horizonte</p>
+                    <p className='text-sm'>22/12/2005</p>
+                    <a href="/" className='text-sm'>Github</a>
+                    <a href="/" className='text-sm'>Linkedln</a>
                   </div>
                 </div>
+                <p className='text-sm'>Se for um site específico que foi lançado após recomendaria procurar mecanismo de busca ou em comunidades.</p>
               </div>
             </div>
 
             {/* Texts about me and graduation here */}
-            <div>
-              <p></p>
+            <div id='profile-div-scroll' className='gap-1 xl:overflow-y-scroll  w-full h-full'>
+              <h1 className='text-3xl'>Academico</h1>
+              <h1 className='text-3xl'>Academico</h1>
+              <h1 className='text-3xl'>Academico</h1>
+              <h1 className='text-3xl'>Academico</h1>
+              <h1 className='text-3xl'>Academico</h1>
+              <h1 className='text-3xl'>Academico</h1>
+              <h1 className='text-3xl'>Academico</h1>
+              <h1 className='text-3xl'>Academico</h1>
+              <h1 className='text-3xl'>Academico</h1>
+              <h1 className='text-3xl'>Academico</h1>
+              <h1 className='text-3xl'>Academico</h1>
+              <h1 className='text-3xl'>Academico</h1>
+              <h1 className='text-3xl'>Academico</h1>
+              <h1 className='text-3xl'>Academico</h1>
+              <h1 className='text-3xl'>Academico</h1>
+              <h1 className='text-3xl'>Academico</h1>
+              <h1 className='text-3xl'>Academico</h1>
+              <h1 className='text-3xl'>Academico</h1>
+              <h1 className='text-3xl'>Academico</h1>
+              <h1 className='text-3xl'>Academico</h1>
+              <h1 className='text-3xl'>Academico</h1>
+              <h1 className='text-3xl'>Academico</h1>
+              <h1 className='text-3xl'>Academico</h1>
+              <h1 className='text-3xl'>Academico</h1>
             </div>
 
           </div>
