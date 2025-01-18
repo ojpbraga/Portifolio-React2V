@@ -3,7 +3,7 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCards } from 'swiper/modules';
-import { getImageURL } from '../utils/image-util';
+
 
 // Import Swiper styles
 import 'swiper/css';
@@ -13,9 +13,9 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-cards';
 
 
-import github from '../images/github.svg'
-import figma from '../images/figma.svg'
-import share from '../images/share.svg'
+import github from '/images/github.svg';
+import figma from '/images/figma.svg';
+import share from '/images/share.svg';
 
 export default function Slides({slides}) {
 
@@ -26,10 +26,10 @@ export default function Slides({slides}) {
       pagination={{clickable: true}}
       className='w-full h-full'
     >
-      {slides.map(({bgColor, imgNotebook, imgLogo, title, description, githubLink, figmaLink, siteLink}) => (
-        <SwiperSlide key={title} style={{background: bgColor}} className='rounded-3xl justify-between flex flex-col h-full pt-[5vh] pb-[2vh] xl:p-6 xl:flex-row-reverse cursor-grab'>
+      {slides.map(({bgColor, imgNotebook, imgLogo, title, description, githubLink, figmaLink, siteLink}, index) => (
+        <SwiperSlide key={title+"_"+index} style={{background: bgColor}} className='rounded-3xl justify-between flex flex-col h-full pt-[5vh] pb-[2vh] xl:p-6 xl:flex-row-reverse cursor-grab'>
           <div className='grid place-items-center'>
-            <img src={getImageURL(imgNotebook)} className='md:w-[70vw] xl:w-[100vw]' alt="" />
+            <img src={imgNotebook} className='md:w-[70vw] xl:w-[100vw]' alt="" />
           </div>
 
           <div className='flex flex-col justify-between h-[45vh] xl:h-full pr-4 pl-4 md:pr-10 md:pl-10 xl:p-0'>
@@ -37,7 +37,7 @@ export default function Slides({slides}) {
             <div className='grid gap-2'>
               {/* title */}
               <div className='flex items-center gap-2 justify-center md:justify-start'>
-                <img src={getImageURL(imgLogo)} className='md:w-[3vw] xl:w-[2vw]' alt="" />
+                <img src={imgLogo} className='md:w-[3vw] xl:w-[2vw]' alt="" />
                 <h1 className='uppercase text-[8vw] md:text-[6vw] xl:text-[3vw] font-bold justify-self-center'>{title}</h1>
               </div>
               {/* end title */}

@@ -2,18 +2,17 @@
 // import * as reactSpring from '@react-spring/three'
 // import * as drei from '@react-three/drei'
 // import * as fiber from '@react-three/fiber'
-import avatar from './images/avatar.mp4'
+import avatar from '../public/images/avatar.mp4';
 import Particles from './components/Particles.tsx';
-import joaoPicture from './images/me.png'
+import joaoPicture from '../public/images/me.png'
 import { BorderBeam } from './components/BorderBeam.tsx'
 import Slides from './components/Slide.jsx';
 import { useEffect, useState } from 'react';
 
-
 const slidesObj = [
   {
     bgColor:"#30193E",
-    imgNotebook: '../images/mouse-cursor.png', 
+    imgNotebook: '../images/mouse-cursor.png',
     imgLogo: '../images/mouse.png',
     title: "Mouse Cursor", 
     description: "Se for um site específico que foi lançado após recomendaria procurar mecanismo de busca ou em comunidades.", 
