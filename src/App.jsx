@@ -1,7 +1,5 @@
-// import { ShaderGradientCanvas, ShaderGradient } from 'shadergradient';
-// import * as reactSpring from '@react-spring/three'
-// import * as drei from '@react-three/drei'
-// import * as fiber from '@react-three/fiber'
+
+
 import avatar from '../public/images/avatar.mp4';
 import Particles from './components/Particles.tsx';
 import joaoPicture from '../public/images/me.png';
@@ -9,6 +7,7 @@ import { BorderBeam } from './components/BorderBeam.tsx'
 import Slides from './components/Slide.jsx';
 import { useEffect, useState } from 'react';
 import location from '../public/images/Location.png';
+import { ShaderGradient, ShaderGradientCanvas } from '@shadergradient/react';
 
 const slidesObj = [
   {
@@ -63,6 +62,11 @@ function App() {
             >
               <ShaderGradient color1='#000055' color2='#0000BF' color3='#0000BF' animate='on' type='plane' cDistance={2} cAzimuthAngle={0} cPolarAngle={90} brightness={4} uDensity={0.5} positionX={4}/>
             </ShaderGradientCanvas> */}
+            <ShaderGradientCanvas style={{borderRadius: '30px'}}>
+              <ShaderGradient
+              color1='#000055' color2='#0000BF' color3='#0000BF' animate='on' type='plane' cDistance={2} cAzimuthAngle={0} cPolarAngle={90} brightness={4} uDensity={0.5} positionX={4}></ShaderGradient>
+            </ShaderGradientCanvas>
+            
           </div>
         </div>
 
@@ -159,6 +163,11 @@ function App() {
           <Slides slides={slidesObj}/>
 
         </div>
+      </section>
+
+      <section className='h-[100vh] flex flex-col'>
+        <h1>Contact</h1>
+        <div>Clique</div>
       </section>
 
       
