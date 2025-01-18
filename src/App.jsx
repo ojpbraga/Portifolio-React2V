@@ -4,10 +4,11 @@
 // import * as fiber from '@react-three/fiber'
 import avatar from '../public/images/avatar.mp4';
 import Particles from './components/Particles.tsx';
-import joaoPicture from '../public/images/me.png'
+import joaoPicture from '../public/images/me.png';
 import { BorderBeam } from './components/BorderBeam.tsx'
 import Slides from './components/Slide.jsx';
 import { useEffect, useState } from 'react';
+import location from '../public/images/Location.png';
 
 const slidesObj = [
   {
@@ -78,9 +79,9 @@ function App() {
             </div>
 
             {/* Picture and data*/}
-            <div className='flex flex-col gap-5 xl:w-[25vw] xl:m-5'>
-              <div className='self-center relative w-[50vw] md:w-[40vw] xl:w-[15vw] xl:h-[35vh] bg-white/10 rounded-[30px] place-items-center '>
-                <img className='rounded-[30px] xl:h-[35vh]' src={joaoPicture} alt=""/>
+            <div className='flex flex-col overflow-hidden gap-5 xl:w-[23vw] xl:m-5'>
+              <div className='self-center relative w-[50vw] md:w-[40vw] xl:w-[15vw] xl:h-[35vh] bg-white/10 rounded-[30px] place-items-center overflow-hidden'>
+                <img className='rounded-[30px] xl:rounded-[5px] xl:h-[41.5vh]' src={joaoPicture} alt=""/>
                 <BorderBeam colorTo='#d9d9d9' colorFrom='#fff'/>
               </div>
 
@@ -88,44 +89,37 @@ function App() {
               <div className='grid gap-2'>
                 <h1 className='font-bold text-[6vw] xl:text-[1.6vw]'>João Pedro O. Braga</h1>
                 <div className='grid'>
-                  <div className='grid grid-cols-2 gap-1'>
-                    <p className='text-sm'>
+                  <div className='grid grid-cols-2 gap-2'>
+                    <p className='text-sm text-[#B5B5B5] w-full flex justify-center items-center gap-1'><img className='h-4' src={location}/>
                     Belo Horizonte</p>
-                    <p className='text-sm'>22/12/2005</p>
-                    <a href="/" className='text-sm'>Github</a>
-                    <a href="/" className='text-sm'>Linkedln</a>
+                    <p className='text-sm text-[#B5B5B5] '>22/12/2005</p>
+                    <a href="/" className='text-sm text-[#B5B5B5] '>Github</a>
+                    <a href="/" className='text-sm text-[#B5B5B5] '>Linkedln</a>
                   </div>
                 </div>
-                <p className='text-sm'>Se for um site específico que foi lançado após recomendaria procurar mecanismo de busca ou em comunidades.</p>
+                <p className='text-sm text-[#B5B5B5] '>Se for um site específico que foi lançado após recomendaria procurar mecanismo de busca ou em comunidades.</p>
               </div>
             </div>
 
             {/* Texts about me and graduation here */}
-            <div id='profile-div-scroll' className='gap-1 xl:overflow-y-scroll  w-full h-full'>
-              <h1 className='text-3xl'>Academico</h1>
-              <h1 className='text-3xl'>Academico</h1>
-              <h1 className='text-3xl'>Academico</h1>
-              <h1 className='text-3xl'>Academico</h1>
-              <h1 className='text-3xl'>Academico</h1>
-              <h1 className='text-3xl'>Academico</h1>
-              <h1 className='text-3xl'>Academico</h1>
-              <h1 className='text-3xl'>Academico</h1>
-              <h1 className='text-3xl'>Academico</h1>
-              <h1 className='text-3xl'>Academico</h1>
-              <h1 className='text-3xl'>Academico</h1>
-              <h1 className='text-3xl'>Academico</h1>
-              <h1 className='text-3xl'>Academico</h1>
-              <h1 className='text-3xl'>Academico</h1>
-              <h1 className='text-3xl'>Academico</h1>
-              <h1 className='text-3xl'>Academico</h1>
-              <h1 className='text-3xl'>Academico</h1>
-              <h1 className='text-3xl'>Academico</h1>
-              <h1 className='text-3xl'>Academico</h1>
-              <h1 className='text-3xl'>Academico</h1>
-              <h1 className='text-3xl'>Academico</h1>
-              <h1 className='text-3xl'>Academico</h1>
-              <h1 className='text-3xl'>Academico</h1>
-              <h1 className='text-3xl'>Academico</h1>
+            <div id='profile-div-scroll' className='gap-5 grid xl:overflow-y-scroll pt-5 w-full h-full'>
+              <div>
+                <h1 className='text-[10vw] md:text-[7vw] xl:text-[4vw] xl:text-start font-bold'>I'm João.</h1>
+                <p className='text-[8.5vw] md:text-[5.5vw] xl:text-[2.5vw] text-[#A1A1A1] font-bold'>A student of <span className='text-[#E1E1E1]'>software engineer</span>. I live in <br/> Belo Horizonte - MG and I trying to <span className='text-[#E1E1E1]'>find a job</span> <br/> I live in Belo Horizonte - MG and. </p>
+              </div>
+
+              <div>
+                <h1 className='text-[10vw] md:text-[7vw] xl:text-[4vw] xl:text-start font-bold'>School</h1>
+                <p className='text-[8.5vw] md:text-[5.5vw] xl:text-[2.5vw] text-[#A1A1A1] font-bold'>A student of <span className='text-[#E1E1E1]'>software engineer</span>. I live in <br/> Belo Horizonte - MG and I trying to <span className='text-[#E1E1E1]'>find a job</span> <br/> I live in Belo Horizonte - MG and. </p>
+              </div>
+
+              <div>
+                <h1 className='text-[10vw] md:text-[7vw] xl:text-[4vw] xl:text-start font-bold'>School</h1>
+                <p className='text-[8.5vw] md:text-[5.5vw] xl:text-[2.5vw] text-[#A1A1A1] font-bold'>A student of <span className='text-[#E1E1E1]'>software engineer</span>. I live in <br/> Belo Horizonte - MG and I trying to <span className='text-[#E1E1E1]'>find a job</span> <br/> I live in Belo Horizonte - MG and. </p>
+              </div>
+             
+
+              
             </div>
 
           </div>
@@ -138,7 +132,7 @@ function App() {
 
         <div className='w-[80vw] xl:w-[40vw]'>
           <h1 className='text-[18vw] md:text-[14vw] xl:text-[8vw] xl:text-start font-bold text-center'>I'm João.</h1>
-          <p className='text-[9vw] md:text-[6vw] xl:text-[3vw] text-[#A1A1A1] font-bold'>A student of <span className='text-[#E1E1E1]'>software engineer</span>. I live in Belo Horizonte - MG <span onClick={() => setProfileDetails(state => !state)}>and...</span>👈</p>
+          <p className='text-[9vw] md:text-[6vw] xl:text-[3vw] text-[#A1A1A1] font-bold'>A student of <span className='text-[#E1E1E1]'>software engineer</span>. I live in Belo Horizonte - MG <span className='cursor-pointer' onClick={() => setProfileDetails(state => !state)}>and...</span>👈</p>
         </div>
         
       </section>
