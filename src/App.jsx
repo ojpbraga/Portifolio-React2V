@@ -65,7 +65,7 @@ function App() {
   return (
     <main className='grid gap-32 justify-center'>
       {/* Desativar por enquanto */}
-      {/* <Particles className='fixed z-[-1] h-[100vh] w-[100%]'/> */}
+      <Particles className='fixed z-[-1] h-[100vh] w-[100%]'/>
 
       <section className="flex flex-col justify-between h-[105vh] items-center">
 
