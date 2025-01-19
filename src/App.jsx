@@ -8,6 +8,9 @@ import Slides from './components/Slide.jsx';
 import { useEffect, useState } from 'react';
 import location from '../public/images/Location.png';
 import { ShaderGradient, ShaderGradientCanvas } from '@shadergradient/react';
+import { Button } from './components/ui/button';
+import { AnimatedBeam } from './components/ui/animated-beam';
+import { AnimatedBeamDemo } from './components/demo/AnimatedBeam';
 
 const slidesObj = [
   {
@@ -39,7 +42,7 @@ function App() {
   return (
     <main className='grid gap-32 justify-center'>
       {/* Desativar por enquanto */}
-      <Particles className='fixed z-[-1] h-[100vh] w-[100%]'/>
+      {/* <Particles className='fixed z-[-1] h-[100vh] w-[100%]'/> */}
 
       <section className="flex flex-col justify-between h-[105vh] items-center">
 
@@ -151,7 +154,7 @@ function App() {
           <h1 className='font-bold text-[11vw] md:text-[8vw] xl:text-[5vw]'>Frameworks</h1>
 
           <div>
-            
+            <AnimatedBeamDemo/>
           </div>
 
         </div>
@@ -168,6 +171,7 @@ function App() {
       <section className='h-[100vh] flex flex-col'>
         <h1>Contact</h1>
         <div>Clique</div>
+        <Button>OII</Button>
       </section>
 
       
