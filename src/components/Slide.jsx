@@ -52,7 +52,7 @@ export default function Slides({slides}) {
                 <a href={figmaLink} className='bg-[#fff] w-14 h-10 rounded-r-3xl grid place-items-center'><img className='w-4' src={figma} alt="" /></a>
               </div>
 
-              <a href={siteLink} className='flex gap-1 uppercase text-[3.5vw] md:text-[2vw] xl:text-[1vw] font-bold bg-[#190D21] w-28 rounded-3xl h-11 items-center justify-center'>
+              <a href={siteLink} className='flex gap-1 uppercase text-[3.5vw] md:text-[2vw] xl:text-[1vw] font-bold bg-[#190D21] w-28 rounded-3xl h-10 items-center justify-center'>
                 <img src={share} className='w-4' alt="" />
                 Visitar
               </a>
