@@ -10,13 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroui/react": "^2.6.14",
+    "@heroui/scroll-shadow": "^2.3.6",
+    "@heroui/theme": "^2.4.6",
     "@radix-ui/react-slot": "^1.1.1",
     "@react-spring/three": "^9.7.5",
     "@react-three/fiber": "^8.17.12",
     "@shadergradient/react": "^2.0.19",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "framer-motion": "^11.3.30",
+    "framer-motion": "^11.18.1",
     "lucide-react": "^0.473.0",
     "motion": "^11.18.1",
     "react": "^18.3.1",

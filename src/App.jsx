@@ -11,6 +11,8 @@ import { ShaderGradient, ShaderGradientCanvas } from '@shadergradient/react';
 import { Button } from './components/ui/button';
 import { AnimatedBeam } from './components/ui/animated-beam';
 import { AnimatedBeamDemo } from './components/demo/AnimatedBeam';
+import {ScrollShadow} from "@heroui/react";
+import Description from './components/about_me/Description';
 
 const slidesObj = [
   {
@@ -58,6 +60,20 @@ const slidesObj = [
 function App() {
 
   const [profileDetails, setProfileDetails] = useState(false);
+
+  // About me
+  const [isMobileScreen, setIsMobileScreen] = useState(null);
+  useEffect(() => {
+    console.log(window.innerWidth)
+    if(window.innerWidth > '1024') {
+      setIsMobileScreen(false);
+      console.log(isMobileScreen);
+    } else {
+      setIsMobileScreen(true);
+      console.log(isMobileScreen);
+    }
+
+  }, [isMobileScreen]);
 
   return (
     <main className='grid gap-32 justify-center'>
@@ -125,29 +141,12 @@ function App() {
             </div>
 
             {/* Texts about me and graduation here */}
-            <div id='profile-div-scroll' className='gap-5 grid xl:overflow-y-scroll pt-5 w-full h-full'>
-              <div>
-                <h1 className='text-[10vw] md:text-[7vw] xl:text-[4vw] xl:text-start font-bold'>I'm João.</h1>
-                <p className='text-[7vw] md:text-[5.5vw] xl:text-[2.5vw] text-[#A1A1A1] font-bold'>A student of <span className='text-[#E1E1E1]'>software engineer</span>. I live in Belo Horizonte - MG and I trying to <span className='text-[#E1E1E1]'>find a job</span> I live in Belo Horizonte - MG and. </p>
-              </div>
-
-              <div>
-                <h1 className='text-[10vw] md:text-[7vw] xl:text-[4vw] xl:text-start font-bold'>School</h1>
-                <p className='text-[8.5vw] md:text-[5.5vw] xl:text-[2.5vw] text-[#A1A1A1] font-bold'>A student of <span className='text-[#E1E1E1]'>software engineer</span>. I live in <br/> Belo Horizonte - MG and I trying to <span className='text-[#E1E1E1]'>find a job</span> <br/> I live in Belo Horizonte - MG and. </p>
-              </div>
-
-              <div>
-                <h1 className='text-[10vw] md:text-[7vw] xl:text-[4vw] xl:text-start font-bold'>School</h1>
-                <p className='text-[8.5vw] md:text-[5.5vw] xl:text-[2.5vw] text-[#A1A1A1] font-bold'>A student of <span className='text-[#E1E1E1]'>software engineer</span>. I live in <br/> Belo Horizonte - MG and I trying to <span className='text-[#E1E1E1]'>find a job</span> <br/> I live in Belo Horizonte - MG and. </p>
-              </div>
-             
-
-              
-            </div>
+            <Description isScreenMobile={isMobileScreen}/>
 
             {/*  */}
             <div className="sticky w-0 h-12  xl:top-6 right-20 cursor-pointer" onClick={() => { setProfileDetails(state => !state);
             setScroll(state => !state);
+            setIsMobileScreen(stete => !stete);
             }}>
               <div className='bg-slate-600 rounded-[100px] grid place-items-center w-12 h-12'>
                 <div className='h-2 w-7 rounded-full bg-white'></div>
