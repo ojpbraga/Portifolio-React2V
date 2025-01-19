@@ -24,7 +24,7 @@ export default function Slides({slides}) {
       modules={[EffectCards]} effect='cards'
       slidesPerView={1}
       pagination={{clickable: true}}
-      className='w-full h-full'
+      className='w-[80vw] xl:w-[70vw] h-full'
     >
       {slides.map(({bgColor, imgNotebook, imgLogo, title, description, githubLink, figmaLink, siteLink}, index) => (
         <SwiperSlide key={title+"_"+index} style={{background: bgColor}} className='rounded-3xl justify-between flex flex-col h-full pt-[5vh] pb-[2vh] xl:p-6 xl:flex-row-reverse cursor-grab'>

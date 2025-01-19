@@ -182,7 +182,7 @@ function App() {
 
       <section className='h-[100vh] flex flex-col items-center overflow-hidden'>
         <h1 className='text-[18vw] md:text-[16vw] font-bold xl:text-[6vw]'>Projects</h1>
-        <div className='w-[80vw] h-[80vh] xl:w-[70vw] xl:h-[70vh]'>
+        <div className='w-[100vw] h-[80vh] xl:h-[70vh]'>
           <Slides slides={slidesObj}/>
 
         </div>
