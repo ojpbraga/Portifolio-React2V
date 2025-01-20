@@ -1,7 +1,5 @@
 
-
 import avatar from '../public/images/avatar.mp4';
-import Particles from './components/Particles.tsx';
 import joaoPicture from '../public/images/me.png';
 import { BorderBeam } from './components/BorderBeam.tsx'
 import Slides from './components/Slide.jsx';
@@ -13,6 +11,7 @@ import { AnimatedBeam } from './components/ui/animated-beam';
 import { AnimatedBeamDemo } from './components/demo/AnimatedBeam';
 import Description from './components/about_me/Description';
 import { AboutMe } from './components/about_me/AboutMe';
+import Particles from './components/ui/particles';
 
 const slidesObj = [
   {
@@ -64,8 +63,7 @@ function App() {
 
   return (
     <main className='grid gap-32 justify-center'>
-      {/* Desativar por enquanto */}
-      <Particles className='fixed z-[-1] h-[100vh] w-[100%]'/>
+      <Particles />
 
       <section className="flex flex-col justify-between h-[105vh] items-center">
 
