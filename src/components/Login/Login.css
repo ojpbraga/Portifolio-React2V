@@ -1,0 +1,3 @@
+.text-blur {
+    -webkit-backdrop-filter: blur( 13.5px );
+}

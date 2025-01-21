@@ -4,7 +4,7 @@ import './animate-bar.css';
 const Loader = () => {
     
     setTimeout(() => {
-        window.location.href = '/Home';
+        window.location.href = '/Login';
     }, 2500);
 
     return (
