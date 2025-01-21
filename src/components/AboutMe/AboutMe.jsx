@@ -14,10 +14,8 @@ export const AboutMe = () => {
         console.log(window.innerWidth)
         if(window.innerWidth > '1024') {
         setIsMobileScreen(false);
-        console.log(isMobileScreen);
         } else {
         setIsMobileScreen(true);
-        console.log(isMobileScreen);
         }
 
     }, [isMobileScreen]);
@@ -27,7 +25,7 @@ export const AboutMe = () => {
 
         {
         profileDetails && 
-          <div className='absolute z-10 w-[90vw] h-[90vh] bg-[#1B1B1B] rounded-[30px] flex flex-col p-5 gap-[2vh] overflow-scroll xl:overflow-hidden xl:flex-row xl:p-0'>
+          <div data-scroll-container className='absolute z-10 w-[90vw] h-[90vh] bg-[#1B1B1B] rounded-[30px] flex flex-col p-5 gap-[2vh] overflow-scroll xl:overflow-hidden xl:flex-row xl:p-0'>
 
             {/* Picture and data*/}
             <div className='flex flex-col xl:overflow-hidden gap-5 xl:w-[23vw] xl:m-5'>

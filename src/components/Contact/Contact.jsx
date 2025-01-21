@@ -1,5 +1,5 @@
-import { RainbowButton } from "./ui/rainbow-button";
-import TextRevealByWord from "./ui/text-reveal";
+import { RainbowButton } from "../ui/rainbow-button";
+import TextRevealByWord from "../ui/text-reveal";
 
 export default function Contact () {
 
