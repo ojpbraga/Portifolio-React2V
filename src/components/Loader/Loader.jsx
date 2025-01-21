@@ -1,10 +1,14 @@
 import airpod from '/public/images/airpod.svg';
-import './animate-bar.css'
+import './animate-bar.css';
 
 const Loader = () => {
+    
+    setTimeout(() => {
+        window.location.href = '/Home';
+    }, 2500);
 
     return (
-        <section className='absolute grid place-items-center z-50 h-full w-full bg-black '>
+        <section className='grid place-items-center h-[100vh] w-full bg-black '>
             <div className='grid gap-7'>
         
                 <div className='grid place-items-center grid-cols-2 w-[10vw]'>
