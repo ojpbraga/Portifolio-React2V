@@ -2,6 +2,8 @@ import Description from "./Description";
 import { useState, useEffect } from "react";
 import joaoPicture from '/public/images/me.png';
 import { BorderBeam } from "../BorderBeam";
+import location from '/public/images/Location.png';
+
 
 export const AboutMe = () => {
     // About me
