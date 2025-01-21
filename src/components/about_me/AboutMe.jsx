@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import joaoPicture from '/public/images/me.png';
 import { BorderBeam } from "../BorderBeam";
 import location from '/public/images/Location.png';
+import SparklesText from "../ui/sparkles-text";
 
 
 export const AboutMe = () => {
@@ -74,7 +75,7 @@ export const AboutMe = () => {
 
         <div className='w-[80vw] xl:w-[40vw]'>
           <h1 className='text-[18vw] md:text-[14vw] xl:text-[8vw] xl:text-start font-bold text-center'>I'm João.</h1>
-          <p className='text-[9vw] md:text-[6vw] xl:text-[3vw] text-[#A1A1A1] font-bold'>A student of <span className='text-[#E1E1E1]'>software engineer</span>. I live in Belo Horizonte - MG <span className='cursor-pointer' onClick={() => setProfileDetails(state => !state)}>and...</span>👈</p>
+          <p className='text-[9vw] md:text-[6vw] xl:text-[3vw] text-[#A1A1A1] font-bold'>A student of <span className='text-[#E1E1E1]'>software engineer</span>. I live in Belo Horizonte - MG <span className='cursor-pointer' onClick={() => setProfileDetails(state => !state)}><SparklesText  text='and...👈'/></span></p>
         </div>
         
       </section>

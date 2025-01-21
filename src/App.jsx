@@ -12,6 +12,7 @@ import { AnimatedBeamDemo } from './components/demo/AnimatedBeam';
 import Description from './components/about_me/Description';
 import { AboutMe } from './components/about_me/AboutMe';
 import Particles from './components/ui/particles';
+import Contact from './components/Contact';
 
 const slidesObj = [
   {
@@ -145,11 +146,7 @@ function App() {
         </div>
       </section>
 
-      <section className='h-[100vh] flex flex-col'>
-        <h1>Contact</h1>
-        <div>Clique</div>
-        <Button>OII</Button>
-      </section>
+      <Contact/>
 
       
     </main>
