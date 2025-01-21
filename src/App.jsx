@@ -1,6 +1,7 @@
 import Loader from './components/Loader/Loader';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
+import Login from './components/Login/Login';
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Loader/>}/>
         <Route path='Home' element={<Home/>}/>
+        <Route path='Login' element={<Login/>}/>
       </Routes>
     </BrowserRouter>
   )
