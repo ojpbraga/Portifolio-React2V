@@ -23,7 +23,7 @@ export const AboutMe = () => {
     }, [isMobileScreen]);
 
     return (
-        <section className='h-screen flex flex-col items-center justify-center gap-2 xl:flex-row xl:w-[85vw] xl:gap-[5vw] overflow-hidden my-0 mx-auto'>
+        <section data-scroll-container className='h-screen flex flex-col items-center justify-center gap-2 xl:flex-row xl:w-[85vw] xl:gap-[5vw] overflow-hidden my-0 mx-auto'>
 
         {
         profileDetails && 

@@ -13,7 +13,8 @@ import Description from './components/about_me/Description';
 import { AboutMe } from './components/about_me/AboutMe';
 import Particles from './components/ui/particles';
 import Contact from './components/Contact';
-import LocomotiveScroll from 'locomotive-scroll';
+import LocomotiveScroll from "locomotive-scroll";
+
 
 const slidesObj = [
   {
@@ -64,8 +65,8 @@ function App() {
     const scroll = new LocomotiveScroll({
       el: document.querySelector("[data-scroll-container]"),
       smooth: true,
-      lerp: 0.05,
-      
+      lerp: 0.03, // Controle de velocidade do scroll
+      multiplier: 1.2, // Ajuste da velocidade geral
     });
 
     return () => {
@@ -76,10 +77,10 @@ function App() {
 
 
   return (
-    <main className='grid gap-32 justify-center' data-scroll-container>
+    <main className='grid gap-32 justify-center'>
       <Particles />
 
-      <section className="flex flex-col justify-between h-[105vh] items-center">
+      <section data-scroll-container className="flex flex-col justify-between h-[105vh] items-center">
 
         <div className="h-[70dvh] grid place-items-center w-[70vw] md:w-[60vw] xl:w-full">
           <h1 className="text-[15vw] md:text-[12vw] xl:text-[6rem] xl:text-center font-bold leading-[15vw] md:leading-[12vw] xl:leading-[100px]">Your next Frontend<br/>Developer<span className="text-[#405CD9]">.</span></h1>
@@ -140,7 +141,7 @@ function App() {
 
       <AboutMe/>
 
-      <section className='grid place-items-center'>
+      <section data-scroll-container className='grid place-items-center'>
         <div className='h-[90vh] w-[90vw] bg-[#1B1B1B] rounded-[30px] grid p-10 xl:pt-5'>
           <h1 className='font-bold text-[11vw] md:text-[8vw] xl:text-[5vw]'>Frameworks</h1>
 
@@ -151,7 +152,7 @@ function App() {
         </div>
       </section>
 
-      <section className='h-[100vh] flex flex-col items-center overflow-hidden'>
+      <section data-scroll-container className='h-[100vh] flex flex-col items-center overflow-hidden'>
         <h1 className='text-[18vw] md:text-[16vw] font-bold xl:text-[6vw]'>Projects</h1>
         <div className='w-[100vw] h-[80vh] xl:h-[70vh]'>
           <Slides slides={slidesObj}/>
