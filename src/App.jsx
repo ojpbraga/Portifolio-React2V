@@ -13,6 +13,7 @@ import Description from './components/about_me/Description';
 import { AboutMe } from './components/about_me/AboutMe';
 import Particles from './components/ui/particles';
 import Contact from './components/Contact';
+import LocomotiveScroll from 'locomotive-scroll';
 
 const slidesObj = [
   {
@@ -59,11 +60,23 @@ const slidesObj = [
 
 function App() {
 
+  useEffect(() => {
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector("[data-scroll-container]"),
+      smooth: true,
+      lerp: 0.05,
+      
+    });
+
+    return () => {
+      scroll.destroy();
+    };
+  }, []);
  
 
 
   return (
-    <main className='grid gap-32 justify-center'>
+    <main className='grid gap-32 justify-center' data-scroll-container>
       <Particles />
 
       <section className="flex flex-col justify-between h-[105vh] items-center">
