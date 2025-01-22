@@ -23,7 +23,7 @@ function Home() {
   }, []);
  
   return (
-    <main className='grid gap-32 justify-center'>
+    <main className='grid gap-32 justify-center bg-black'>
         <Particles />
         <Intro/>
         <AboutMe/>
