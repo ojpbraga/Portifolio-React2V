@@ -11,7 +11,7 @@ const Desktop = () => {
     useEffect(() => {
         if(isVideoPause) setTimeout(() => {
             video.current.pause();
-        }, 2500);
+        }, 10500);
 
     }, [isUnlocked]);
 

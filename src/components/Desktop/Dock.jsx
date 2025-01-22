@@ -20,8 +20,8 @@ import trash from '/public/images/lixo-icon.svg'
 
 const Dock = () => {
     return (
-        <div className='w-[100%] overflow-hidden absolute bottom-0 flex justify-center'>
-            <div className="glassmorphism dock flex p-1 pb-0 mb-2 rounded-2xl shadow-md relative">
+        <div className='w-[100%] h-20 overflow-hidden flex justify-center relative '>
+            <div className="glassmorphism dock flex p-1 pb-0 mb-2 rounded-2xl absolute shadow-md">
                 {[finder, launchPad, safari, mensagens, email, mapas, fotos, faceTime, calendario, contatos, notas, musica, appletv, podcasts, noticias, configuracao, pasta, trash].map((apps, index) => (
                     <img key={'img_desktop_'+index} src={apps} className='w-14' alt="" />
                 ))}
