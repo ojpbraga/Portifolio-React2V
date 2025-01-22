@@ -4,6 +4,7 @@ import wifi from '/public/images/wifi-icon.svg'
 import search from '/public/images/search.svg'
 import person from '/public/images/person.svg'
 import control from '/public/images/control.svg'
+import BatteryIcon from '/public/images/battery-icon.svg'
 
 const Header = () => {
     // Talvez refazer p/ versão branco com vídeo de fundo
@@ -16,7 +17,8 @@ const Header = () => {
             </div>
 
             {/* Status/Config */}
-            <div className='flex items-center'>
+            <div className='flex items-center gap-1'>
+                <img src={BatteryIcon} alt="" />
                 <img src={wifi} alt="" />
                 <img src={search} alt="" />
                 <img src={person} alt="" />
