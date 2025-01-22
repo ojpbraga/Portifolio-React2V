@@ -12,7 +12,7 @@ const Header = () => {
             {/* Initial */}
             <div className='gap-4 h-full flex items-center'>
                 <img className='w-4' src={Logo} alt="" />
-                <p className='text-sm font-semibold mb-[0.8px]'>Finder</p>
+                <p className='text-sm font-semibold mb-[0.8px] text-black'>Finder</p>
             </div>
 
             {/* Status/Config */}
@@ -21,7 +21,7 @@ const Header = () => {
                 <img src={search} alt="" />
                 <img src={person} alt="" />
                 <img src={control} alt="" />
-                <p className='text-sm font-semibold mb-[0.8px]'>Mon Jan 10 12:00 AM</p>
+                <p className='text-sm font-semibold mb-[0.8px] text-black'>Mon Jan 10 12:00 AM</p>
             </div>
         </header>
     )
