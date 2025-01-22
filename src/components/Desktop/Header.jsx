@@ -9,7 +9,7 @@ import BatteryIcon from '/public/images/battery-icon.svg'
 const Header = () => {
     // Talvez refazer p/ versão branco com vídeo de fundo
     return (
-        <header className="h-6 w-full glassmorphism flex items-center px-4 justify-between" >
+        <header className="header absolute h-6 w-full glassmorphism flex items-center px-4 justify-between" >
             {/* Initial */}
             <div className='gap-4 h-full flex items-center'>
                 <img className='w-4' src={Logo} alt="" />
@@ -17,8 +17,8 @@ const Header = () => {
             </div>
 
             {/* Status/Config */}
-            <div className='flex items-center gap-1'>
-                <img src={BatteryIcon} alt="" />
+            <div className='flex items-center'>
+                <img src={BatteryIcon} className='pr-2' alt="" />
                 <img src={wifi} alt="" />
                 <img src={search} alt="" />
                 <img src={person} alt="" />

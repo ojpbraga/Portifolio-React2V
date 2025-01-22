@@ -17,7 +17,7 @@ const Desktop = () => {
 
     return (
         <>
-            <video src={videoWallpaper} ref={video} autoPlay muted className='absolute h-[100dvh] w-[100vw] object-cover z-[-1]' alt="" />
+            <video src={videoWallpaper} ref={video} autoPlay muted loop className='absolute h-[100dvh] w-[100vw] object-cover z-[-1]' alt="" />
 
             {isUnlocked ? <Content/> : <Login setVideoPause={setVideoPause} setIsUnlocked={setIsUnlocked}/>}
         </>
