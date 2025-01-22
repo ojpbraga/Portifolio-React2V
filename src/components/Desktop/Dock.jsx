@@ -18,11 +18,17 @@ import configuracao from '/public/images/configuracao-icon.svg'
 import pasta from '/public/images/pasta-icon.svg'
 import trash from '/public/images/lixo-icon.svg'
 
-const Dock = () => {
+const Dock = ({setIsSafariOpen}) => {
+
+    function handleClick() {
+        setIsSafariOpen(state => !state);
+    }
+
     return (
-        <div className='w-[100%] h-20 overflow-hidden flex justify-center relative '>
+        <div className='w-[100%] h-20 overflow-hidden flex justify-center relative'>
             <div className="glassmorphism dock flex p-1 pb-0 mb-2 rounded-2xl absolute shadow-md">
                 {[finder, launchPad, safari, mensagens, email, mapas, fotos, faceTime, calendario, contatos, notas, musica, appletv, podcasts, noticias, configuracao, pasta, trash].map((apps, index) => (
+                    apps === safari ? <img key={'img_desktop_'+index} src={apps} className='w-14' onClick={handleClick} alt="" /> :
                     <img key={'img_desktop_'+index} src={apps} className='w-14' alt="" />
                 ))}
             </div>
