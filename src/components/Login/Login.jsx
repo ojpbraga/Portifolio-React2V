@@ -11,9 +11,9 @@ const Login = () => {
 
     return (
         <>
-            <video src={videoBackground} className='w-[100vw] h-[100vh] z-0 absolute object-cover' autoPlay muted loop/>
+            <video src={videoBackground} className='w-[100vw] h-[100dvh] z-0 absolute object-cover' autoPlay muted loop/>
 
-            <main className="flex flex-col h-[100vh] w-full items-center">
+            <main className="flex flex-col h-[100dvh] w-full items-center">
 
                 <header className='w-full justify-end p-1 px-2 flex z-10'>
                     <img className='w-10' src={WifiIcon} alt="" />
