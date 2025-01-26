@@ -1,11 +1,24 @@
 import airpod from '/public/images/airpod.svg';
 import './animate-bar.css';
+import fullscreen from '/public/images/fullscreen-icon.svg'
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Loader = () => {
+    const [alert, setAlert] = useState(false);
+    const [expandScreen, setExpandScreen] = useState(false);
     
     setTimeout(() => {
-        window.location.href = '/Desktop';
+        setAlert(true);
     }, 2500);
+
+    useEffect(() => {
+        function handleClick() {
+            document.documentElement.requestFullscreen();
+            document.documentElement.webkitRequestFullscreen();
+        }
+        if(expandScreen) handleClick();
+    }, [expandScreen]);
 
     return (
         <section className='grid place-items-center h-[100vh] w-full bg-black '>
@@ -19,9 +32,17 @@ const Loader = () => {
                 <div className='w-full h-[1vh] bg-[#2a2a2a] rounded-full'>
                     <div className='bg-white w-0 h-full rounded-full animate-bar'>
                     </div>
-                </div>
+                </div>   
                 
             </div>
+
+            {alert && <div className='absolute self-center  bg-white rounded-2xl w-64 h-72 grid place-items-center'>
+                {/* Acredito que usar margin desta forma é errado, mas ok */}
+                <img className='w-28 mt-5' src={fullscreen} alt="" />
+                <h1 className='font-semibold text-black text-center p-5'>Expanda a tela para uma melhor experiência</h1>
+                <Link className='underline text-blue-500 cursor-pointer' to="/Desktop" onClick={() => setExpandScreen(true)}>Ok</Link>
+            </div>
+            }
 
         </section>
     )
