@@ -1,12 +1,15 @@
 import airpod from '/public/images/airpod.svg';
-import './animate-bar.css';
 import fullscreen from '/public/images/fullscreen-icon.svg'
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import gsap from 'gsap';
+import { Timeline } from 'gsap/gsap-core';
 
 const Loader = () => {
     const [alert, setAlert] = useState(false);
     const [expandScreen, setExpandScreen] = useState(false);
+    const loaderBar = useRef();
+    gsap.registerPlugin(Timeline);
     
     setTimeout(() => {
         setAlert(true);
@@ -20,6 +23,16 @@ const Loader = () => {
         if(expandScreen) handleClick();
     }, [expandScreen]);
 
+    useEffect(() => {
+        function preloaderAnimation() {
+            gsap.timeline()
+            .from(loaderBar.current, {width:'1%'})
+            .to(loaderBar.current, {width:'100%'});
+          
+        }
+        preloaderAnimation();
+    }, []);
+
     return (
         <section className='grid place-items-center h-[100vh] w-full bg-black '>
             <div className='grid gap-7'>
@@ -30,7 +43,7 @@ const Loader = () => {
                 </div>
 
                 <div className='w-full h-[1vh] bg-[#2a2a2a] rounded-full'>
-                    <div className='bg-white w-0 h-full rounded-full animate-bar'>
+                    <div ref={loaderBar} className='bg-white w-0 h-full rounded-full animate-bar'>
                     </div>
                 </div>   
                 
