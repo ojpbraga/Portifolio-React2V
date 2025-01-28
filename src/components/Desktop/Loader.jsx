@@ -5,15 +5,11 @@ import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { Timeline } from 'gsap/gsap-core';
 
-const Loader = () => {
+const Loader = ({isVideoLoaded}) => {
     const [alert, setAlert] = useState(false);
     const [expandScreen, setExpandScreen] = useState(false);
     const loaderBar = useRef();
     gsap.registerPlugin(Timeline);
-    
-    setTimeout(() => {
-        setAlert(true);
-    }, 2500);
 
     useEffect(() => {
         function handleClick() {
@@ -26,12 +22,14 @@ const Loader = () => {
     useEffect(() => {
         function preloaderAnimation() {
             gsap.timeline()
-            .from(loaderBar.current, {width:'1%'})
-            .to(loaderBar.current, {width:'100%'});
-          
+            .from(loaderBar.current, {width:'16%'})
+            if(isVideoLoaded === true) {
+                gsap.timeline().to(loaderBar.current, {width:'100%'});
+                setAlert(true);
+            }
         }
         preloaderAnimation();
-    }, []);
+    }, [isVideoLoaded]);
 
     return (
         <section className='grid place-items-center h-[100vh] w-full bg-black '>
@@ -53,7 +51,7 @@ const Loader = () => {
                 {/* Acredito que usar margin desta forma é errado, mas ok */}
                 <img className='w-28 mt-5' src={fullscreen} alt="" />
                 <h1 className='font-semibold text-black text-center p-5'>Expanda a tela para uma melhor experiência</h1>
-                <Link className='underline text-blue-500 cursor-pointer' to="/Desktop" onClick={() => setExpandScreen(true)}>Ok</Link>
+                <a className='underline text-blue-500 cursor-pointer' onClick={() => setExpandScreen(true)}>Ok</a>
             </div>
             }
 
