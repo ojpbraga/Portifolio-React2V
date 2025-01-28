@@ -1,23 +1,19 @@
 import airpod from '/public/images/airpod.svg';
 import fullscreen from '/public/images/fullscreen-icon.svg'
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { Timeline } from 'gsap/gsap-core';
 
-const Loader = ({isVideoLoaded}) => {
+const Loader = ({isVideoLoaded, setExpandScreen}) => {
     const [alert, setAlert] = useState(false);
-    const [expandScreen, setExpandScreen] = useState(false);
     const loaderBar = useRef();
     gsap.registerPlugin(Timeline);
 
-    useEffect(() => {
-        function handleClick() {
-            document.documentElement.requestFullscreen();
-            document.documentElement.webkitRequestFullscreen();
-        }
-        if(expandScreen) handleClick();
-    }, [expandScreen]);
+    function handleClick() {
+        document.documentElement.requestFullscreen();
+        document.documentElement.webkitRequestFullscreen();
+        setExpandScreen(true);
+    }
 
     useEffect(() => {
         function preloaderAnimation() {
@@ -51,7 +47,7 @@ const Loader = ({isVideoLoaded}) => {
                 {/* Acredito que usar margin desta forma é errado, mas ok */}
                 <img className='w-28 mt-5' src={fullscreen} alt="" />
                 <h1 className='font-semibold text-black text-center p-5'>Expanda a tela para uma melhor experiência</h1>
-                <a className='underline text-blue-500 cursor-pointer' onClick={() => setExpandScreen(true)}>Ok</a>
+                <a className='underline text-blue-500 cursor-pointer' onClick={handleClick}>Ok</a>
             </div>
             }
 
