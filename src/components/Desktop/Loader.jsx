@@ -18,7 +18,9 @@ const Loader = ({isVideoLoaded, setExpandScreen}) => {
     useEffect(() => {
         function preloaderAnimation() {
             gsap.timeline()
-            .from(loaderBar.current, {width:'16%'})
+            .from(loaderBar.current, {width:'0%', duration: 1.2, ease:'none'})
+            .from(loaderBar.current, {width:'20%'})
+            .from(loaderBar.current, {width:'70%'})
             if(isVideoLoaded === true) {
                 gsap.timeline().to(loaderBar.current, {width:'100%'});
                 setAlert(true);
