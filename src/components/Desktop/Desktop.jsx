@@ -4,7 +4,7 @@ import Content from './Content';
 import Loader from './Loader';
 
 const Desktop = () => {
-    const [videoWallpaper, setVideoWallpaper] = useState(null);
+    const [videoWallpaper, setVideoWallpaper] = useState('');
 
     const [isUnlocked, setIsUnlocked] = useState(false);
     const [isVideoPause, setVideoPause] = useState(false);
@@ -15,15 +15,13 @@ const Desktop = () => {
 
     const [page, setPage] = useState();
 
-    // Função que me retorna quando o vídeo foi carregado, pois é muito pesado (é possível melhorar?)
+    // Função que me retorna quando o vídeo foi carregado
     useEffect(() => {
         async function videoLoaded() {
-            const url = '/public/images/macOS.mp4';
-            let response = await fetch(url);
-            response = await response.blob();
-            setVideoWallpaper(url);
+            const url = 'https://res.cloudinary.com/dtnlqma3i/video/upload/v1738118096/i77vwdxgoprsjelskxok.mp4';
+            const response = await fetch(url);
+            setVideoWallpaper(response.url);
             setIsVideoLoaded(true);
-            console.log("Vídeo Carregou");
         }
         videoLoaded();
     }, []);
@@ -53,7 +51,7 @@ const Desktop = () => {
 
     return (
         <>
-            <video src={videoWallpaper} ref={video} autoPlay muted loop className='absolute h-[100dvh] w-[100vw] object-cover z-[-1]' alt="" />
+            <video src={videoWallpaper} ref={video} autoPlay muted loop className='absolute h-[100dvh] w-[100vw] object-cover z-[-1]' onLoad={() => console.log('Carregado')} alt="" />
             
             {page}
                 
