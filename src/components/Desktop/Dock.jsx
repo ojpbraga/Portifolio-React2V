@@ -17,6 +17,8 @@ import noticias from '/images/noticias-icon.svg'
 import configuracao from '/images/configuracao-icon.svg'
 import pasta from '/images/pasta-icon.svg'
 import trash from '/images/lixo-icon.svg'
+import github from '/public/images/github-icon.png'
+import linkedln from '/public/images/linkedln-icon.svg'
 import { Timeline } from 'gsap/gsap-core'
 import gsap from 'gsap'
 import { createRef, useContext, useRef } from 'react'
@@ -32,16 +34,18 @@ const apps = [
     { id: 'mapas', url: mapas },
     { id: 'fotos', url: fotos },
     { id: 'faceTime', url: faceTime },
-    { id: 'calendario', url: calendario },
-    { id: 'contatos', url: contatos },
-    { id: 'notas', url: notas },
-    { id: 'musica', url: musica },
-    { id: 'appletv', url: appletv },
-    { id: 'podcasts', url: podcasts },
-    { id: 'noticias', url: noticias },
-    { id: 'configuracao', url: configuracao },
-    { id: 'pasta', url: pasta },
-    { id: 'trash', url: trash },
+    // { id: 'calendario', url: calendario },
+    // { id: 'contatos', url: contatos },
+    { id: 'github', url: github },
+    { id: 'linkedln', url: linkedln },
+    // { id: 'notas', url: notas },
+    // { id: 'musica', url: musica },
+    // { id: 'appletv', url: appletv },
+    // { id: 'podcasts', url: podcasts },
+    // { id: 'noticias', url: noticias },
+    // { id: 'configuracao', url: configuracao },
+    // { id: 'pasta', url: pasta },
+    // { id: 'trash', url: trash },
 ];
 
 const Dock = () => {
@@ -53,13 +57,17 @@ const Dock = () => {
         setData(data => 
             data.map(app => app.id === appName ? {...app, close:!app.close} : app )
         )
+        if(appName === 'github') window.location.assign('//github.com/ojpbraga');
+        if(appName === 'linkedln') window.location.assign('//linkedin.com/in/ojpbraga/');
+        if(appName === 'email') window.location.assign('//mailto:ojpbraga@gmail.com');
     };
 
     return (
         <div className='w-[100%] h-20 overflow-hidden flex justify-center relative'>
             <div className="glassmorphism dock flex p-1 pb-0 mb-2 rounded-2xl absolute shadow-md">
                 {apps.map((app, index) => (
-                    <img key={'img_desktop_'+index} src={app.url} id={app.id} className='w-14' onClick={handleClick} alt="" />
+                    app.id === 'github' || app.id === 'safari' || app.id === 'linkedln' || app.id === 'email' ? <img key={'img_desktop_'+index} src={app.url} id={app.id} className='w-14 h-full cursor-pointer' onClick={handleClick} alt="" /> 
+                    : <img key={'img_desktop_'+index} src={app.url} id={app.id} className='w-14 h-full cursor-not-allowed' onClick={handleClick} alt="" />
                 ))}
             </div>
         </div>
