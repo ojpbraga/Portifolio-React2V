@@ -5,9 +5,9 @@ import { ShaderGradient, ShaderGradientCanvas } from '@shadergradient/react';
 const Intro = () => {
 
     return (
-        <section data-scroll-container className="flex flex-col justify-between h-full w-full items-center">
+        <section  className="flex flex-col justify-between h-full w-full items-center">
 
-        <div className="h-full grid place-items-center w-[70vw] md:w-[60vw] xl:w-full">
+        <div className="h-[40dvh] grid place-items-center w-[60%] md:w-[60%] xl:w-full">
           <h1 className="text-[15vw] md:text-[12vw] xl:text-[6rem] xl:text-center font-bold leading-[15vw] md:leading-[12vw] xl:leading-[100px]">Your next Frontend<br/>Developer<span className="text-[#405CD9]">.</span></h1>
         </div>
 
