@@ -21,11 +21,11 @@ export const AboutMe = () => {
     }, [isMobileScreen]);
 
     return (
-        <section data-scroll-container className='h-screen flex flex-col items-center justify-center gap-2 xl:flex-row xl:w-[85vw] xl:gap-[5vw] overflow-hidden my-0 mx-auto'>
+        <section data-scroll-container className='h-[77dvh] w-[90%] flex flex-col items-center justify-center gap-2 xl:flex-row xl:gap-[5vw] overflow-hidden my-0 mx-auto'>
 
         {
         profileDetails && 
-          <div data-scroll-container className='absolute z-10 w-[90vw] h-[90vh] bg-[#1B1B1B] rounded-[30px] flex flex-col p-5 gap-[2vh] overflow-scroll xl:overflow-hidden xl:flex-row xl:p-0'>
+          <div className='absolute z-20 w-[80%] h-[80%] bg-[#1B1B1B] rounded-[30px] flex flex-col p-5 gap-[2vh] overflow-scroll xl:overflow-hidden xl:flex-row xl:p-0'>
 
             {/* Picture and data*/}
             <div className='flex flex-col xl:overflow-hidden gap-5 xl:w-[23vw] xl:m-5'>
@@ -66,14 +66,14 @@ export const AboutMe = () => {
           </div>
         }
 
-        <div className=' relative w-[60vw] md:w-[40vw] xl:w-[25vw] bg-white/10 rounded-[30px]'>
+        <div className=' relative w-44 xl:w-60 bg-white/10 rounded-[30px]'>
           <img className='rounded-[30px]' src={joaoPicture} alt=""/>
           <BorderBeam colorTo='#d9d9d9' colorFrom='#fff'/>
         </div>
 
-        <div className='w-[80vw] xl:w-[40vw]'>
-          <h1 className='text-[18vw] md:text-[14vw] xl:text-[8vw] xl:text-start font-bold text-center'>I'm João.</h1>
-          <p className='text-[9vw] md:text-[6vw] xl:text-[3vw] text-[#A1A1A1] font-bold'>A student of <span className='text-[#E1E1E1]'>software engineer</span>. I live in Belo Horizonte - MG <span className='cursor-pointer' onClick={() => setProfileDetails(state => !state)}><SparklesText  text='and...👈'/></span></p>
+        <div className='xl:w-[40%] grid gap-6'>
+          <h1 className='text-5xl xl:text-7xl xl:text-start font-bold text-center'>I'm João.</h1>
+          <p className='text-3xl xl:text-4xl text-[#A1A1A1] font-bold'>A student of <span className='text-[#E1E1E1]'>software engineer</span>. I live in Belo Horizonte - MG <span className='cursor-pointer' onClick={() => setProfileDetails(state => !state)}><SparklesText className={'text-3xl xl:text-4xl'}  text='and...👈'/></span></p>
         </div>
         
       </section>

@@ -5,27 +5,20 @@ import { ShaderGradient, ShaderGradientCanvas } from '@shadergradient/react';
 const Intro = () => {
 
     return (
-        <section  className="flex flex-col justify-between h-full w-full items-center">
+        <section  className="flex flex-col justify-between h-[77dvh] items-center">
 
-        <div className="h-[40dvh] grid place-items-center w-[60%] md:w-[60%] xl:w-full">
-          <h1 className="text-[15vw] md:text-[12vw] xl:text-[6rem] xl:text-center font-bold leading-[15vw] md:leading-[12vw] xl:leading-[100px]">Your next Frontend<br/>Developer<span className="text-[#405CD9]">.</span></h1>
+        <div className="h-[40dvh] grid place-items-center w-full text-center">
+          <h1 className="text-6xl md:text-8xl text-center font-bold">Your next Frontend<br/>Developer<span className="text-[#405CD9]">.</span></h1>
         </div>
 
-        <div className='relative flex justify-center h-[40vh]'>
-          <div className='w-[60vw] md:w-[35vw] xl:w-[16vw] z-10 top-0 absolute'>
-            <video className='rounded-[30px]' loop autoPlay muted>
+        <div className='relative w-full flex justify-center mb-5'>
+          <div className='w-[60%] xl:w-[20%] z-10 '>
+            <video className='rounded-[10%]' loop autoPlay muted>
               <source src={avatar} />
             </video>
-
           </div>
 
-          <div className='w-[95vw] xl:w-[85vw] h-[20vh] self-end'>
-            {/* <ShaderGradientCanvas
-              importedFiber={{ ...fiber, ...drei, ...reactSpring }}
-              style={{borderRadius: '30px'}}
-            >
-              <ShaderGradient color1='#000055' color2='#0000BF' color3='#0000BF' animate='on' type='plane' cDistance={2} cAzimuthAngle={0} cPolarAngle={90} brightness={4} uDensity={0.5} positionX={4}/>
-            </ShaderGradientCanvas> */}
+          {/* <div className=' h-[20vh] self-end'>
             <ShaderGradientCanvas style={{borderRadius: '30px'}}>
               <ShaderGradient
               color1='#000055' 
@@ -59,7 +52,7 @@ const Intro = () => {
               ></ShaderGradient>
             </ShaderGradientCanvas>
             
-          </div>
+          </div> */}
         </div>
 
       </section>

@@ -23,14 +23,16 @@ function Home() {
   }, []);
  
   return (
-    <main className='grid gap-32 justify-center bg-black'>
-        <Particles />
-        <Intro/>
-        <AboutMe/>
-        <Projects/>
-        <Frameworks/>
-        <Contact/>
-    </main>
+    <>
+      <Particles />
+      <main className='grid gap-32 justify-center bg-black xmax-w-lg min-w-full md:max-w-sm mx-auto my-0 '>
+          <Intro/>
+          <AboutMe/>
+          <Projects/>
+          <Frameworks/>
+          <Contact/>
+      </main>
+    </>
   )
 }
 
