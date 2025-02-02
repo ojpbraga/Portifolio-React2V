@@ -12,19 +12,24 @@ import Safari from '../Safari/Safari';
 const Header = ({app}) => {
     const { data, setData } = useContext(AppsContext);
 
-    // function handleCloseScreen() {
-    //     setData({...data,});
-    //     console.log(data)
-       
-    // };
+    function handleCloseScreen() {
+        setData(data => 
+            data.map(appObj => appObj.id === app ? {...appObj, close:!appObj.close} : appObj )
+        )
+    };
 
-    // function handleMaximize() {
-    //     setData({...data, [data[app].close]:false});
-    // };
+    function handleMaximize() {
+        setData(data => 
+            data.map(appObj => appObj.id === app ? {...appObj, maximize:!appObj.maximize} : appObj )
+        )
+    };
 
-    // function handleMinimize() {
-    //     setData({...data, [data[app].close]:false});
-    // };
+    function handleMinimize() {
+        setData(data => 
+            data.map(appObj => appObj.id === app ? {...appObj, close:!appObj.close} : appObj )
+        )
+    };
+
 
 if(app === 'safari')
     return (
@@ -32,14 +37,14 @@ if(app === 'safari')
             {/* Window Controls */}
             <div className='flex items-center gap-4'>
                 <div className="flex items-center gap-2">
-                    {/* {
+                    {
                         data &&
                         <>
-                            <div onClick={handleCloseScreen} className="h-4 w-4 rounded-full bg-[#FF5F57]"></div>
-                            <div onClick={handleMaximize} className="h-4 w-4 rounded-full bg-[#FEBC2E]"></div>
-                            <div onClick={handleMinimize} className="h-4 w-4 rounded-full bg-[#28C840]"></div>
+                            <div onClick={handleCloseScreen} className="h-4 w-4 rounded-full bg-[#FF5F57] border-1 border-[#e0443e]"></div>
+                            <div onClick={handleMaximize} className="h-4 w-4 rounded-full bg-[#FEBC2E] border-1 border-[#dfa223]"></div>
+                            <div onClick={handleMinimize} className="h-4 w-4 rounded-full bg-[#28C840] border-1 border-[#1ea42b]"></div>
                         </>
-                    } */}
+                    }
                 </div>
 
                 {/* Sidebar */}
