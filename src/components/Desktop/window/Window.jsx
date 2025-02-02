@@ -1,5 +1,5 @@
 import Header from "./Header";
-import './window.css'
+import '../Window/window.css';
 
 // Pensar em parametros que torne o componente reutilizavel a outros apps
 const Window = ({children, app}) => {

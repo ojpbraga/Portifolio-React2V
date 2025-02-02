@@ -1,5 +1,5 @@
 import Home from "@/components/Home/Home";
-import Window from "@/components/Desktop/Window/Window";
+import Window from "../window/Window";
 
 const Safari = () => {
     return (
