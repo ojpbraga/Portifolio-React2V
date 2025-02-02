@@ -1,5 +1,5 @@
-import airpod from '/public/images/airpod.svg';
-import fullscreen from '/public/images/fullscreen-icon.svg'
+import airpod from '/images/airpod.svg';
+import fullscreen from '/images/fullscreen-icon.svg'
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { Timeline } from 'gsap/gsap-core';
@@ -20,7 +20,7 @@ const Loader = ({isVideoLoaded, setExpandScreen}) => {
             gsap.timeline()
             .from(loaderBar.current, {width:'0%', duration: 1.2, ease:'none'})
             .from(loaderBar.current, {width:'20%'})
-            .from(loaderBar.current, {width:'70%'})
+            .to(loaderBar.current, {width:'70%'})
             if(isVideoLoaded === true) {
                 gsap.timeline().to(loaderBar.current, {width:'100%'});
                 setAlert(true);
@@ -33,7 +33,7 @@ const Loader = ({isVideoLoaded, setExpandScreen}) => {
         <section className='grid place-items-center h-[100vh] w-full bg-black '>
             <div className='grid gap-7'>
         
-                <div className='grid place-items-center grid-cols-2 w-[35vw] xl:w-[10vw]'>
+                <div className='grid place-items-center grid-cols-2 w-40 xl:w-[10vw]'>
                     <img src={airpod} alt=""/>
                     <img src={airpod} alt="" className=' scale-x-[-1]' />
                 </div>

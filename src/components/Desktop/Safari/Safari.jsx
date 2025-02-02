@@ -1,9 +1,9 @@
 import Home from "@/components/Home/Home";
-import Window from "../window/Window";
+import Window from "../Window/Window";
 
 const Safari = () => {
     return (
-        <Window>
+        <Window app='safari'>
             <Home/>
         </Window>
     )

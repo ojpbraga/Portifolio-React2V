@@ -5,17 +5,43 @@ import lockIcon from '/public/images/lock-icon.svg';
 import plusIcon from '/public/images/plus-icon.svg';
 import reloadIcon from '/public/images/reload-icon.svg';
 import downloadIcon from '/public/images/download-icon.svg';
+import { useContext } from 'react';
+import { AppsContext } from '@/AppsContext';
+import Safari from '../Safari/Safari';
 
-const Header = () => {
+const Header = ({app}) => {
+    const { data, setData } = useContext(AppsContext);
+
+    // function handleCloseScreen() {
+    //     setData({...data,});
+    //     console.log(data)
+       
+    // };
+
+    // function handleMaximize() {
+    //     setData({...data, [data[app].close]:false});
+    // };
+
+    // function handleMinimize() {
+    //     setData({...data, [data[app].close]:false});
+    // };
+
+if(app === 'safari')
     return (
         <header className="w-full h-10 bg-black sticky top-0 flex justify-between items-center px-3">
             {/* Window Controls */}
             <div className='flex items-center gap-4'>
                 <div className="flex items-center gap-2">
-                    {['#FF5F57', '#FEBC2E', '#28C840'].map((controlColor, index) => (
-                        <div key={'controlColor_'+index} style={{background: controlColor}} className="h-4 w-4 rounded-full "></div>
-                    ))}
+                    {/* {
+                        data &&
+                        <>
+                            <div onClick={handleCloseScreen} className="h-4 w-4 rounded-full bg-[#FF5F57]"></div>
+                            <div onClick={handleMaximize} className="h-4 w-4 rounded-full bg-[#FEBC2E]"></div>
+                            <div onClick={handleMinimize} className="h-4 w-4 rounded-full bg-[#28C840]"></div>
+                        </>
+                    } */}
                 </div>
+
                 {/* Sidebar */}
                 <div className='flex items-center gap-[2px] w-8 justify-between'>
                     <img src={sidebarIcon} alt="" />

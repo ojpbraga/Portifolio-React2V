@@ -1,10 +1,10 @@
 import './desktop.css'
-import Logo from '/public/images/logo.svg'
-import wifi from '/public/images/wifi-icon.svg'
-import search from '/public/images/search.svg'
-import person from '/public/images/person.svg'
-import control from '/public/images/control.svg'
-import BatteryIcon from '/public/images/battery-icon.svg'
+import Logo from '/images/logo.svg'
+import wifi from '/images/wifi-icon.svg'
+import search from '/images/search.svg'
+import person from '/images/person.svg'
+import control from '/images/control.svg'
+import BatteryIcon from '/images/battery-icon.svg'
 
 const Header = () => {
     // Talvez refazer p/ versão branco com vídeo de fundo
