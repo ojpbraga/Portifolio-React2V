@@ -72,7 +72,7 @@ const Dock = () => {
   
 
     return (
-        <div className='w-[100%] h-28 absolute overflow-hidden bottom-0 grid items-end justify-items-center z-50'>
+        <div className='w-[100%] h-28 absolute overflow-hidden bottom-0 grid items-end justify-items-center z-[999999]'>
 
             <div className="glassmorphism flex p-1 pb-0 rounded-2xl shadow-md mb-2">
                 {apps.map((app, index) => (

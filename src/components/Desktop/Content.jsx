@@ -12,12 +12,7 @@ const appsComponents = {
 
 const Content = () => {
     const {data, setData} = useContext(AppsContext);
-
-    // gsap.registerPlugin(Draggable, InertiaPlugin);
-    // Draggable.create(".flair--4b", {
-    //     bounds: ".container",
-    //     inertia: true
-    //   });
+    
 
     return (
         <>
@@ -25,7 +20,9 @@ const Content = () => {
                 <Header/>
 
                     {/* Retorna componentes que estão abertos, possibilitando multitarefas */}
-                    {data && data.map(appObj => appObj.close ? appsComponents[appObj.id] : null)}
+                    <div className='h-full w-[100vw] pt-[3dvh] flex justify-center'>
+                        {data && data.map(appObj => appObj.close ? appsComponents[appObj.id] : null)}
+                    </div>
                   
                 <Dock/>
             </main>
