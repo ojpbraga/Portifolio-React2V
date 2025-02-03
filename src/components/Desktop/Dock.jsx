@@ -19,9 +19,8 @@ import pasta from '/images/pasta-icon.svg'
 import trash from '/images/lixo-icon.svg'
 import github from '/public/images/github-icon.png'
 import linkedln from '/public/images/linkedln-icon.svg'
-import { Timeline } from 'gsap/gsap-core'
 import gsap from 'gsap'
-import { createRef, useContext, useRef } from 'react'
+import { createRef, useContext, useEffect, useRef } from 'react'
 import { AppsContext } from '@/AppsContext'
 import { toggle } from '@heroui/theme'
 
@@ -57,17 +56,28 @@ const Dock = () => {
         setData(data => 
             data.map(app => app.id === appName ? {...app, close:!app.close} : app )
         )
+
         if(appName === 'github') window.location.assign('//github.com/ojpbraga');
         if(appName === 'linkedln') window.location.assign('//linkedin.com/in/ojpbraga/');
         if(appName === 'email') window.location.assign('//mailto:ojpbraga@gmail.com');
+
+        openAnimation(target);
     };
 
+    function openAnimation(appTarget) {
+        gsap.to(appTarget, {bottom:'20px', width:'4rem', duration: 0.2, ease:'none', onComplete: () => {
+            gsap.to(appTarget, {bottom:'0', width:'3.5rem',  delay: 0.3 });
+        }, });
+    }
+  
+
     return (
-        <div className='w-[100%] h-20 overflow-hidden flex justify-center relative'>
-            <div className="glassmorphism dock flex p-1 pb-0 mb-2 rounded-2xl absolute shadow-md">
+        <div className='w-[100%] h-28 absolute overflow-hidden bottom-0 grid items-end justify-items-center z-50'>
+
+            <div className="glassmorphism flex p-1 pb-0 rounded-2xl shadow-md mb-2">
                 {apps.map((app, index) => (
-                    app.id === 'github' || app.id === 'safari' || app.id === 'linkedln' || app.id === 'email' ? <img key={'img_desktop_'+index} src={app.url} id={app.id} className='w-14 h-full cursor-pointer' onClick={handleClick} alt="" /> 
-                    : <img key={'img_desktop_'+index} src={app.url} id={app.id} className='w-14 h-full cursor-not-allowed' onClick={handleClick} alt="" />
+                    app.id === 'github' || app.id === 'safari' || app.id === 'linkedln' || app.id === 'email' ? <img key={'img_desktop_'+index} src={app.url} id={app.id} className='w-14  cursor-pointer h-full relative' onClick={handleClick} alt="" /> 
+                    : <img key={'img_desktop_'+index} src={app.url} id={app.id} className='w-14 h-full cursor-not-allowed relative' onClick={handleClick} alt="" />
                 ))}
             </div>
         </div>

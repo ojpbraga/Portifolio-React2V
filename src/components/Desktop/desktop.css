@@ -9,7 +9,7 @@ backdrop-filter: blur( 14.5px );
 }
 
 /* Dock */
-.dock {
+/* .dock {
     animation: dock 3s normal;
 }
  @keyframes dock {
@@ -31,4 +31,4 @@ backdrop-filter: blur( 14.5px );
     100% {
         top: 0px;
     }
-}
+} */
