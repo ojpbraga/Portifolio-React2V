@@ -23,6 +23,7 @@ import gsap from 'gsap'
 import { createRef, useContext, useEffect, useRef } from 'react'
 import { AppsContext } from '@/AppsContext'
 import { toggle } from '@heroui/theme'
+import { Timeline } from 'gsap/gsap-core'
 
 const apps = [
     { id: 'finder', url: finder },
@@ -49,6 +50,16 @@ const apps = [
 
 const Dock = () => {
     const {data, setData} = useContext(AppsContext);
+    const container = useRef();
+    gsap.registerPlugin(Timeline);
+
+    useEffect(() => {
+        setTimeout(() => {
+            gsap.timeline()
+            
+                .to(container.current, {bottom:'0', duration: 0.8, ease:'none'})
+        }, 1200)
+    }, []);
 
     // Abre ou fecha componente, quando clicado no item
     function handleClick({target}) {
@@ -61,20 +72,19 @@ const Dock = () => {
         if(appName === 'linkedln') window.location.assign('//linkedin.com/in/ojpbraga/');
         if(appName === 'email') window.location.assign('//mailto:ojpbraga@gmail.com');
 
-        openAnimation(target);
+        openAppAnimation(target);
     };
 
-    function openAnimation(appTarget) {
+    function openAppAnimation(appTarget) {
         gsap.to(appTarget, {bottom:'20px', width:'4rem', duration: 0.2, ease:'none', onComplete: () => {
             gsap.to(appTarget, {bottom:'0', width:'3.5rem',  delay: 0.3 });
         }, });
     }
-  
 
     return (
         <div className='w-[100%] h-28 absolute overflow-hidden bottom-0 grid items-end justify-items-center z-[999999]'>
 
-            <div className="glassmorphism flex p-1 pb-0 rounded-2xl shadow-md mb-2">
+            <div ref={container} className="glassmorphism relative flex p-1 pb-0 rounded-2xl shadow-md mb-2 bottom-[-100px]">
                 {apps.map((app, index) => (
                     app.id === 'github' || app.id === 'safari' || app.id === 'linkedln' || app.id === 'email' ? <img key={'img_desktop_'+index} src={app.url} id={app.id} className='w-14  cursor-pointer h-full relative' onClick={handleClick} alt="" /> 
                     : <img key={'img_desktop_'+index} src={app.url} id={app.id} className='w-14 h-full cursor-not-allowed relative' onClick={handleClick} alt="" />
