@@ -5,13 +5,25 @@ import search from '/images/search.svg'
 import person from '/images/person.svg'
 import control from '/images/control.svg'
 import BatteryIcon from '/images/battery-icon.svg'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { Timeline } from 'gsap/gsap-core'
+import { formatDate } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
 
 const Header = () => {
     const container = useRef();
     gsap.registerPlugin(Timeline);
+    const [date, setDate] = useState(new Date());
+    
+        setInterval(() => {
+            setDate(new Date());
+        }, 100);
+    
+        const dayWeek = formatDate(date, `EEEE`,{locale: ptBR,});
+        const dayMonth = formatDate(date, `dd`,{locale: ptBR,});
+        const month = formatDate(date, `MMM`,{locale: ptBR,});
+        const hour = formatDate(date, `H:mm`,{locale: ptBR,});
 
     useEffect(() => {
         setTimeout(() => {
@@ -37,7 +49,7 @@ const Header = () => {
                     <img src={search} alt="" />
                     <img src={person} alt="" />
                     <img src={control} alt="" />
-                    <p className='text-sm font-semibold mb-[0.8px] text-black'>Mon Jan 10 12:00 AM</p>
+                    <p className='text-sm font-semibold mb-[0.8px] text-black'>{`${dayWeek.charAt(0).toUpperCase() + dayWeek.slice(1,3)}., ${dayMonth} de ${month.charAt(0).toUpperCase() + month.slice(1)}. ${hour}`}</p>
                 </div>
             </div>
             
