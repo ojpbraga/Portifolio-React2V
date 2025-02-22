@@ -1,3 +1,8 @@
 .text-blur {
     -webkit-backdrop-filter: blur( 13.5px );
 }
+
+.glassmorphism {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur( 15.5px );
+}
