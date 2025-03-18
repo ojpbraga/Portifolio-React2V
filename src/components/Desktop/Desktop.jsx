@@ -18,7 +18,7 @@ const Desktop = () => {
     // Função que me retorna quando o vídeo foi carregado
     useEffect(() => {
         async function videoLoaded() {
-            const url = 'https://res.cloudinary.com/dtnlqma3i/video/upload/v1738118096/i77vwdxgoprsjelskxok.mp4';
+            const url = 'https://portifolio-video.s3.us-east-2.amazonaws.com/macOS.mp4';
             const response = await fetch(url);
             setVideoWallpaper(response.url);
             setIsVideoLoaded(true);
@@ -37,7 +37,7 @@ const Desktop = () => {
     useEffect(() => {
         function handleChangePage() {
             if(expandScreen) {
-                setPage(<Login setIsUnlocked={setIsUnlocked} setVideoPause={setVideoPause}/>);
+                setPage(<Login isUnlocked={isUnlocked} setIsUnlocked={setIsUnlocked} setVideoPause={setVideoPause}/>);
             } else {
                 setPage(<Loader isVideoLoaded={isVideoLoaded} expandScreen={expandScreen} setExpandScreen={setExpandScreen}/>);
             }
