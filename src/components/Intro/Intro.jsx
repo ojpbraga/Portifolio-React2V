@@ -8,7 +8,7 @@ const Intro = () => {
         <section  className="flex flex-col justify-between h-[77dvh] items-center">
 
         <div className="h-[40dvh] grid place-items-center w-full text-center">
-          <h1 className="text-6xl md:text-8xl text-center font-bold">Your next Frontend<br/>Developer<span className="text-[#405CD9]">.</span></h1>
+          <h1 className="text-6xl md:text-8xl text-center font-bold">Seu próximo dev<br/>Frontend<span className="text-[#405CD9]">.</span></h1>
         </div>
 
         <div className='relative w-full flex justify-center mb-5'>

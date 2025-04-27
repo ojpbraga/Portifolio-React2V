@@ -8,7 +8,7 @@ export default function Contact () {
             
             <TextRevealByWord  text='Faça parte do meu futuro.'/>
             <div className=" grid place-items-center w-full h-[35vh] xl:h-[50vh]">
-                <RainbowButton>Contact</RainbowButton>
+                <RainbowButton>Contato</RainbowButton>
             </div>
 
         </section>

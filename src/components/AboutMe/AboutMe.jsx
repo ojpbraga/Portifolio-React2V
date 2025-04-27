@@ -72,8 +72,8 @@ export const AboutMe = () => {
         </div>
 
         <div className='xl:w-[40%] grid gap-6'>
-          <h1 className='text-5xl xl:text-7xl xl:text-start font-bold text-center'>I'm João.</h1>
-          <p className='text-3xl xl:text-4xl text-[#A1A1A1] font-bold'>A student of <span className='text-[#E1E1E1]'>software engineer</span>. I live in Belo Horizonte - MG <span className='cursor-pointer' onClick={() => setProfileDetails(state => !state)}><SparklesText className={'text-3xl xl:text-4xl'}  text='and...👈'/></span></p>
+          <h1 className='text-5xl xl:text-7xl xl:text-start font-bold text-center'>Eu sou João.</h1>
+          <p className='text-3xl xl:text-4xl text-[#A1A1A1] font-bold'>Um estudante de <span className='text-[#E1E1E1]'>Sistemas de Informção</span>. Eu moro em Belo Horizonte - MG <span className='cursor-pointer' onClick={() => setProfileDetails(state => !state)}><SparklesText className={'text-3xl xl:text-4xl'}  text='Mais detalhes...👈'/></span></p>
         </div>
         
       </section>
