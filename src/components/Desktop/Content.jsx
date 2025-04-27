@@ -12,7 +12,6 @@ const appsComponents = {
 
 const Content = () => {
     const {data, setData} = useContext(AppsContext);
-    
 
     return (
         <>

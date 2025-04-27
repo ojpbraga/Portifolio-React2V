@@ -7,7 +7,6 @@ import reloadIcon from '/public/images/reload-icon.svg';
 import downloadIcon from '/public/images/download-icon.svg';
 import { useContext } from 'react';
 import { AppsContext } from '@/AppsContext';
-import Safari from '../Safari/Safari';
 
 const Header = ({app}) => {
     const { data, setData } = useContext(AppsContext);
@@ -41,8 +40,8 @@ if(app === 'safari')
                         data &&
                         <>
                             <div onClick={handleCloseScreen} className="h-4 w-4 rounded-full bg-[#FF5F57] border-1 border-[#e0443e]"></div>
-                            <div onClick={handleMaximize} className="h-4 w-4 rounded-full bg-[#FEBC2E] border-1 border-[#dfa223]"></div>
-                            <div onClick={handleMinimize} className="h-4 w-4 rounded-full bg-[#28C840] border-1 border-[#1ea42b]"></div>
+                            <div onClick={handleMinimize} className="h-4 w-4 rounded-full bg-[#FEBC2E] border-1 border-[#dfa223]"></div>
+                            <div onClick={handleMaximize} className="h-4 w-4 rounded-full bg-[#28C840] border-1 border-[#1ea42b]"></div>
                         </>
                     }
                 </div>
