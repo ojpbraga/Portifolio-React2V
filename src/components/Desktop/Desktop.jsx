@@ -18,9 +18,10 @@ const Desktop = () => {
     // Função que me retorna quando o vídeo foi carregado
     useEffect(() => {
         async function videoLoaded() {
-            const url = 'https://portifolio-video.s3.us-east-2.amazonaws.com/macOS.mp4';
-            const response = await fetch(url);
-            setVideoWallpaper(response.url);
+            // feature: trazer vídeo de uma api
+            // const url = 'https://portifolio-video.s3.us-east-2.amazonaws.com/macOS.mp4';
+            // const response = await fetch(url);
+            setVideoWallpaper('./images/macOS.mp4');
             setIsVideoLoaded(true);
         }
         videoLoaded();
