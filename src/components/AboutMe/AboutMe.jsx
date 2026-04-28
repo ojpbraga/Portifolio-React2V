@@ -29,8 +29,8 @@ export const AboutMe = () => {
 
             {/* Picture and data*/}
             <div className='flex flex-col xl:overflow-hidden gap-5 xl:w-[23vw] xl:m-5'>
-              <div className='self-center relative w-[50vw] md:w-[40vw] xl:w-[15vw] xl:h-[35vh] bg-white/10 rounded-[30px] place-items-center overflow-hidden'>
-                <img className='rounded-[30px] xl:rounded-[5px] xl:h-[41.5vh]' src={joaoPicture} alt=""/>
+              <div className='self-center relative w-[55vw] aspect-square md:w-[32vw] xl:w-[13vw] bg-white/10 rounded-[30px] overflow-hidden'>
+                <img className='w-full h-full object-cover object-top' src={joaoPicture} alt="João Pedro"/>
                 <BorderBeam colorTo='#d9d9d9' colorFrom='#fff'/>
               </div>
 
