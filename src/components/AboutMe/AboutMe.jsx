@@ -40,13 +40,13 @@ export const AboutMe = () => {
                 <div className='grid'>
                   <div className='grid grid-cols-2 gap-2'>
                     <p className='text-sm text-[#B5B5B5] w-full flex items-center gap-1'><img className='h-4' src={location}/>
-                    Belo Horizonte</p>
-                    <p className='text-sm text-[#B5B5B5] '>22/12/2005</p>
-                    <a href="/" className='text-sm text-[#B5B5B5] '>Github</a>
-                    <a href="/" className='text-sm text-[#B5B5B5] '>Linkedln</a>
+                    Belo Horizonte - MG</p>
+                    <p className='text-sm text-[#B5B5B5]'>19 anos · Solteiro</p>
+                    <a href="https://github.com/ojpbraga" target='_blank' rel='noreferrer' className='text-sm text-[#B5B5B5] hover:text-white transition-colors'>GitHub</a>
+                    <a href="https://www.linkedin.com/in/ojpbraga" target='_blank' rel='noreferrer' className='text-sm text-[#B5B5B5] hover:text-white transition-colors'>LinkedIn</a>
                   </div>
                 </div>
-                <p className='text-sm text-[#B5B5B5] '>Se for um site específico que foi lançado após recomendaria procurar mecanismo de busca<br/>ou em comunidades.</p>
+                <p className='text-sm text-[#B5B5B5]'>Estudante de Sistemas de Informação buscando estágio em <span className='text-[#E1E1E1]'>Front-End e UI Design</span>.<br/>Atualmente estagiário na PRODEMGE.</p>
               </div>
             </div>
 
