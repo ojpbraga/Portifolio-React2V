@@ -40,10 +40,18 @@ export const AboutMe = () => {
                 <div className='grid'>
                   <div className='grid grid-cols-2 gap-2'>
                     <p className='text-sm text-[#B5B5B5] w-full flex items-center gap-1'><img className='h-4' src={location}/>
-                    Belo Horizonte - MG</p>
+                    Belo Horizonte</p>
                     <p className='text-sm text-[#B5B5B5]'>19 anos · Solteiro</p>
-                    <a href="https://github.com/ojpbraga" target='_blank' rel='noreferrer' className='text-sm text-[#B5B5B5] hover:text-white transition-colors'>GitHub</a>
-                    <a href="https://www.linkedin.com/in/ojpbraga" target='_blank' rel='noreferrer' className='text-sm text-[#B5B5B5] hover:text-white transition-colors'>LinkedIn</a>
+                    <a href="https://github.com/ojpbraga" target='_blank' rel='noreferrer'
+                      className='flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-[#24292e] text-white border border-white/10 hover:bg-[#3a3f44] hover:scale-105 transition-all duration-200 w-fit'>
+                      <img src='/images/github.svg' className='h-3.5 w-3.5' alt='GitHub'/>
+                      GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/ojpbraga" target='_blank' rel='noreferrer'
+                      className='flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-[#0A66C2] text-white border border-[#0A66C2]/40 hover:bg-[#0958a8] hover:scale-105 transition-all duration-200 w-fit'>
+                      <img src='/images/linkedln-icon.svg' className='h-3.5 w-3.5' alt='LinkedIn'/>
+                      LinkedIn
+                    </a>
                   </div>
                 </div>
                 <p className='text-sm text-[#B5B5B5]'>Estudante de Sistemas de Informação buscando estágio em <span className='text-[#E1E1E1]'>Front-End e UI Design</span>.<br/>Atualmente estagiário na PRODEMGE.</p>
