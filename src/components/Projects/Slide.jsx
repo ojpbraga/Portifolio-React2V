@@ -1,68 +1,145 @@
-// import Swiper core and required modules
-// import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCards } from 'swiper/modules';
-
-
-// Import Swiper styles
+import { EffectCards, Navigation } from 'swiper/modules';
+import { useRef } from 'react';
 import 'swiper/css';
-// import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-// import 'swiper/css/scrollbar';
 import 'swiper/css/effect-cards';
-
+import 'swiper/css/navigation';
 
 import github from '/images/github.svg';
 import figma from '/images/figma.svg';
 import share from '/images/share.svg';
 
-export default function Slides({slides}) {
+const LinkButton = ({ href, icon, label, dark }) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noreferrer"
+    className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all duration-200 hover:scale-105 hover:opacity-90
+      ${dark ? 'bg-[#111] text-white border border-white/10' : 'bg-white text-black'}`}
+  >
+    <img src={icon} alt={label} className="w-4 h-4 object-contain" />
+    {label}
+  </a>
+);
+
+const ArrowIcon = ({ direction }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className="w-4 h-4"
+  >
+    {direction === 'prev'
+      ? <path d="M15 18l-6-6 6-6" />
+      : <path d="M9 18l6-6-6-6" />
+    }
+  </svg>
+);
+
+export default function Slides({ slides }) {
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
 
   return (
-    <Swiper
-      modules={[EffectCards]} effect='cards'
-      slidesPerView={1}
-      pagination={{clickable: true}}
-      className='w-[80vw] xl:w-full h-full'
-    >
-      {slides.map(({bgColor, imgNotebook, imgLogo, title, description, githubLink, figmaLink, siteLink}, index) => (
-        <SwiperSlide key={title+"_"+index} style={{background: bgColor}} className='rounded-3xl justify-between flex flex-col h-full pt-[5vh] pb-[2vh] xl:p-6 xl:flex-row-reverse cursor-grab'>
-          <div className='grid place-items-center'>
-            <img src={imgNotebook} className='md:w-[70vw] xl:w-[100vw]' alt="" />
-          </div>
+    <div className="relative">
+      <Swiper
+        modules={[EffectCards, Navigation]}
+        effect="cards"
+        slidesPerView={1}
+        navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
+        onBeforeInit={(swiper) => {
+          swiper.params.navigation.prevEl = prevRef.current;
+          swiper.params.navigation.nextEl = nextRef.current;
+        }}
+        className="w-[85vw] xl:w-full h-full"
+      >
+        {slides.map(({ bgColor, imgNotebook, title, description, githubLink, figmaLink, siteLink }, index) => (
+          <SwiperSlide
+            key={title + '_' + index}
+            className="rounded-3xl overflow-hidden cursor-grab select-none"
+            style={{ background: '#1a1a1a' }}
+          >
+            {/* Accent bar topo */}
+            <div className="h-1 w-full" style={{ background: bgColor }} />
 
-          <div className='flex flex-col justify-between h-[45vh] xl:h-full pr-4 pl-4 md:pr-10 md:pl-10 xl:p-0'>
-            {/* Div text */}
-            <div className='grid gap-2'>
-              {/* title */}
-              <div className='flex items-center gap-2 justify-center md:justify-start'>
-                <img src={imgLogo} className='md:w-[3vw] xl:w-[2vw]' alt="" />
-                <h1 className='uppercase text-[8vw] md:text-[6vw] xl:text-[3vw] font-bold justify-self-center'>{title}</h1>
+            <div className="flex flex-col xl:flex-row h-full">
+
+              {/* Conteúdo — esquerda */}
+              <div className="flex flex-col justify-between flex-1 p-6 xl:p-8 gap-4">
+
+                {/* Título + descrição */}
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-8 rounded-full" style={{ background: bgColor }} />
+                    <h1 className="text-2xl xl:text-3xl font-bold text-white uppercase tracking-wide">
+                      {title}
+                    </h1>
+                  </div>
+                  <p className="text-sm xl:text-base text-[#999] leading-relaxed font-medium">
+                    {description}
+                  </p>
+                </div>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 text-[10px] font-semibold rounded-full border border-white/10 text-[#888] uppercase tracking-widest">Web</span>
+                  <span className="px-3 py-1 text-[10px] font-semibold rounded-full border border-white/10 text-[#888] uppercase tracking-widest">UI Design</span>
+                </div>
+
+                {/* Links */}
+                <div className="flex items-center gap-3 flex-wrap">
+                  <LinkButton href={githubLink} icon={github} label="GitHub" dark />
+                  <LinkButton href={figmaLink}  icon={figma}  label="Figma"  dark={false} />
+                  <a
+                    href={siteLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold text-white transition-all duration-200 hover:scale-105"
+                    style={{ background: bgColor }}
+                  >
+                    <img src={share} alt="Visitar" className="w-4 h-4 object-contain" />
+                    Visitar site
+                  </a>
+                </div>
+
               </div>
-              {/* end title */}
-              <p className='font-semibold text-[5vw] md:text-[4vw] xl:text-[2vw]'>{description}</p>
-            </div>
-            {/* End div text */}
 
-            {/* Div links */}
-            <div className='flex justify-between items-center'>
-              <div className='flex'>
-                <a href={githubLink} className='bg-[#24292E] w-14 h-10 rounded-l-3xl grid place-items-center'><img className='w-7' src={github} alt="" /></a>
-                <a href={figmaLink} className='bg-[#fff] w-14 h-10 rounded-r-3xl grid place-items-center'><img className='w-4' src={figma} alt="" /></a>
+              {/* Imagem — direita */}
+              <div className="grid place-items-center xl:w-[55%] overflow-hidden">
+                <img
+                  src={imgNotebook}
+                  alt={title}
+                  className="md:w-[70vw] xl:w-[100vw] object-contain"
+                />
               </div>
 
-              <a href={siteLink} className='flex gap-1 uppercase text-[3.5vw] md:text-[2vw] xl:text-[1vw] font-bold bg-[#190D21] w-28 rounded-3xl h-10 items-center justify-center'>
-                <img src={share} className='w-4' alt="" />
-                Visitar
-              </a>
             </div>
-            {/* End div links */}
-          </div>
-        </SwiperSlide>
-      ))}
+          </SwiperSlide>
+        ))}
+      </Swiper>
 
-      
-    </Swiper>
+      {/* Botões de navegação customizados */}
+      <div className="flex justify-center gap-3 mt-1">
+        <button
+          ref={prevRef}
+          className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/15 hover:border-white/25 hover:scale-105 transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
+          aria-label="Slide anterior"
+        >
+          <ArrowIcon direction="prev" />
+        </button>
+
+        <button
+          ref={nextRef}
+          className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/15 hover:border-white/25 hover:scale-105 transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
+          aria-label="Próximo slide"
+        >
+          <ArrowIcon direction="next" />
+        </button>
+      </div>
+    </div>
   );
-};
+}

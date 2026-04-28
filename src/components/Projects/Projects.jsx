@@ -51,7 +51,7 @@ const slidesObj = [
 const Projects = () => {
 
     return (
-        <section data-scroll-container className='h-[77dvh] w-full flex flex-col items-center justify-center gap-4 overflow-hidden'>
+        <section data-scroll-container className='h-[88dvh] w-full flex flex-col items-center justify-center gap-4 overflow-hidden'>
             <h1 className='text-[18vw] md:text-[16vw] font-bold xl:text-[6vw]'>Projetos</h1>
             <div className='w-full flex-1 min-h-0 xl:w-[60%]'>
               <Slides slides={slidesObj}/>
