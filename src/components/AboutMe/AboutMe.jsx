@@ -61,10 +61,12 @@ export const AboutMe = () => {
             {/* Texts about me and graduation here */}
             <Description isScreenMobile={isMobileScreen}/>
 
-            {/*  */}
-            <div className="sticky w-0 h-12 xl:top-6 right-20 cursor-pointer" onClick={() => setProfileDetails(false)}>
-              <div className='bg-slate-600 rounded-[100px] grid place-items-center w-12 h-12'>
-                <div className='h-2 w-7 rounded-full bg-white'></div>
+            {/* Botão Fechar */}
+            <div className="sticky w-10 h-10 xl:top-6 right-6 xl:right-20 cursor-pointer self-end xl:self-auto" onClick={() => setProfileDetails(false)}>
+              <div className='bg-white/10 hover:bg-white/20 border border-white/10 transition-colors rounded-full grid place-items-center w-10 h-10'>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
               </div>
             </div>
 
