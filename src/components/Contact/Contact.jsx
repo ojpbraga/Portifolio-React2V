@@ -18,7 +18,7 @@ export default function Contact() {
           </h1>
 
           <p className="text-[#888] text-sm xl:text-base font-medium max-w-md leading-relaxed">
-            Estou em busca de estágio em <span className="text-[#E1E1E1]">Front-End e UI Design</span>. Se tiver uma oportunidade ou quiser trocar uma ideia, me manda uma mensagem!
+            Se ficou interessado e quiser trocar uma ideia, me manda uma mensagem.
           </p>
         </div>
 

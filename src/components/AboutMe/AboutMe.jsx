@@ -71,14 +71,16 @@ export const AboutMe = () => {
           </div></div>
         }
 
-        <div className=' relative w-44 xl:w-60 bg-white/10 rounded-[30px]'>
-          <img className='rounded-[30px]' src={joaoPicture} alt=""/>
+        <div className=' relative w-56 xl:w-80 bg-white/10 rounded-[30px]'>
+          <img className='rounded-[30px] w-full h-full object-cover' src={joaoPicture} alt=""/>
           <BorderBeam colorTo='#d9d9d9' colorFrom='#fff'/>
         </div>
 
-        <div className='xl:w-[40%] grid gap-6'>
-          <h1 className='text-5xl xl:text-7xl xl:text-start font-bold text-center'>Eu sou João.</h1>
-          <div className='text-3xl xl:text-4xl text-[#A1A1A1] font-bold'>Um estudante de <span className='text-[#E1E1E1]'>Sistemas de Informção</span>. Eu moro em Belo Horizonte - MG <span className='cursor-pointer' onClick={() => setProfileDetails(state => !state)}><SparklesText className={'text-3xl xl:text-4xl'}  text='Mais detalhes...👈'/></span></div>
+        <div className='xl:w-[45%] grid gap-5'>
+          <h1 className='text-5xl xl:text-6xl xl:text-start font-bold text-center'>Eu sou João.</h1>
+          <div className='text-xl xl:text-2xl text-[#A1A1A1] font-bold leading-snug'>
+            Estudante de <span className='text-[#E1E1E1]'>Sistemas de Informação</span>, com experiência em <span className='text-[#E1E1E1]'>desenvolvimento web (React.js e Laravel)</span> e interesse em desenvolver projetos na área <span className='text-[#E1E1E1]'>Fullstack</span>. <br/><br/><span className='cursor-pointer inline-block mt-1 hover:text-white transition-colors' onClick={() => setProfileDetails(true)}><SparklesText className={'text-xl xl:text-2xl'}  text='Mais detalhes...👈'/></span>
+          </div>
         </div>
         
       </section>

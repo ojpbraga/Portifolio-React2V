@@ -57,7 +57,7 @@ export default function Slides({ slides }) {
         }}
         className="w-[85vw] xl:w-full h-full"
       >
-        {slides.map(({ bgColor, imgNotebook, title, description, githubLink, figmaLink, siteLink }, index) => (
+        {slides.map(({ bgColor, imgNotebook, title, description, githubLink, figmaLink, siteLink, tags }, index) => (
           <SwiperSlide
             key={title + '_' + index}
             className="rounded-3xl overflow-hidden cursor-grab select-none"
@@ -86,24 +86,27 @@ export default function Slides({ slides }) {
 
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 text-[10px] font-semibold rounded-full border border-white/10 text-[#888] uppercase tracking-widest">Web</span>
-                  <span className="px-3 py-1 text-[10px] font-semibold rounded-full border border-white/10 text-[#888] uppercase tracking-widest">UI Design</span>
+                  {tags?.map((tag, i) => (
+                    <span key={i} className="px-3 py-1 text-[10px] font-semibold rounded-full border border-white/10 text-[#888] uppercase tracking-widest">{tag}</span>
+                  ))}
                 </div>
 
                 {/* Links */}
                 <div className="flex items-center gap-3 flex-wrap">
-                  <LinkButton href={githubLink} icon={github} label="GitHub" dark />
-                  <LinkButton href={figmaLink}  icon={figma}  label="Figma"  dark={false} />
-                  <a
-                    href={siteLink}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold text-white transition-all duration-200 hover:scale-105"
-                    style={{ background: bgColor }}
-                  >
-                    <img src={share} alt="Visitar" className="w-4 h-4 object-contain" />
-                    Visitar site
-                  </a>
+                  {githubLink && <LinkButton href={githubLink} icon={github} label="GitHub" dark />}
+                  {figmaLink && <LinkButton href={figmaLink} icon={figma} label="Figma" dark={false} />}
+                  {siteLink && (
+                    <a
+                      href={siteLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold text-white transition-all duration-200 hover:scale-105"
+                      style={{ background: bgColor }}
+                    >
+                      <img src={share} alt="Visitar" className="w-4 h-4 object-contain" />
+                      Visitar site
+                    </a>
+                  )}
                 </div>
 
               </div>
