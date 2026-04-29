@@ -5,6 +5,9 @@ import lockIcon from '/public/images/lock-icon.svg';
 import plusIcon from '/public/images/plus-icon.svg';
 import reloadIcon from '/public/images/reload-icon.svg';
 import downloadIcon from '/public/images/download-icon.svg';
+import macClose from '/public/images/mac-close.svg';
+import macMinimize from '/public/images/mac-minimize.svg';
+import macMaximize from '/public/images/mac-maximize.svg';
 import { useContext } from 'react';
 import { AppsContext } from '@/AppsContext';
 import Safari from '../Safari/Safari';
@@ -40,9 +43,9 @@ if(app === 'safari')
                     {
                         data &&
                         <>
-                            <div onClick={handleCloseScreen} className="h-4 w-4 rounded-full bg-[#FF5F57] border-1 border-[#e0443e]"></div>
-                            <div onClick={handleMaximize} className="h-4 w-4 rounded-full bg-[#FEBC2E] border-1 border-[#dfa223]"></div>
-                            <div onClick={handleMinimize} className="h-4 w-4 rounded-full bg-[#28C840] border-1 border-[#1ea42b]"></div>
+                            <img onClick={handleCloseScreen} src={macClose}    className="h-4 w-4 cursor-pointer hover:scale-110 transition-transform" alt="close" />
+                            <img onClick={handleMinimize}    src={macMinimize}  className="h-4 w-4 cursor-pointer hover:scale-110 transition-transform" alt="minimize" />
+                            <img onClick={handleMaximize}    src={macMaximize}  className="h-4 w-4 cursor-pointer hover:scale-110 transition-transform" alt="maximize" />
                         </>
                     }
                 </div>

@@ -2,7 +2,7 @@ import { RainbowButton } from "../ui/rainbow-button";
 
 export default function Contact() {
   return (
-    <section data-scroll-container className="flex flex-col items-center justify-end h-[77dvh]">
+    <section className="flex flex-col items-center justify-end h-[77dvh]">
       <div className="w-[90%] xl:w-[80%] bg-[#1B1B1B] rounded-t-[30px] flex flex-col items-center justify-center p-10 xl:p-16 gap-8 text-center h-[88%]">
 
         <div className="flex flex-col items-center gap-4">
@@ -12,8 +12,7 @@ export default function Contact() {
 
           <h1 className="font-bold text-[12vw] md:text-[8vw] xl:text-[5vw] leading-tight">
             Vamos<br />
-            <span className="text-transparent bg-clip-text"
-              style={{ backgroundImage: "linear-gradient(135deg, #6366f1, #a855f7, #ec4899)" }}>
+            <span className="text-white">
               conversar?
             </span>
           </h1>

@@ -21,10 +21,10 @@ const Content = () => {
 
                     {/* Retorna componentes que estão abertos, possibilitando multitarefas */}
                     <div className='h-full w-[100vw] pt-[3dvh] flex justify-center'>
-                        {data && data.map(appObj => appObj.close ? appsComponents[appObj.id] : null)}
+                        {data && data.map(appObj => appObj.close ? <div key={appObj.id}>{appsComponents[appObj.id]}</div> : null)}
                     </div>
                   
-                <Dock/>
+                {(!data || !data.some(appObj => appObj.maximize)) && <Dock/>}
             </main>
         </>
     )

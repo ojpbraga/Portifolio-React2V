@@ -21,11 +21,11 @@ export const AboutMe = () => {
     }, [isMobileScreen]);
 
     return (
-        <section data-scroll-container className='h-[77dvh] w-[90%] flex flex-col items-center justify-center gap-2 xl:flex-row xl:gap-[5vw] overflow-hidden my-0 mx-auto'>
+        <section className='h-[77dvh] w-[90%] flex flex-col items-center justify-center gap-2 xl:flex-row xl:gap-[5vw] overflow-hidden my-0 mx-auto'>
 
         {
         profileDetails && 
-          <div className='absolute z-20 w-[80%] h-[80%] bg-[#1B1B1B] rounded-[30px] flex flex-col p-5 gap-[2vh] overflow-scroll xl:overflow-hidden xl:flex-row xl:p-0'>
+          <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm'><div className='w-[80%] h-[80%] bg-[#1B1B1B] rounded-[30px] flex flex-col p-5 gap-[2vh] overflow-scroll xl:overflow-hidden xl:flex-row xl:p-0'>
 
             {/* Picture and data*/}
             <div className='flex flex-col xl:overflow-hidden gap-5 xl:w-[23vw] xl:m-5'>
@@ -62,16 +62,13 @@ export const AboutMe = () => {
             <Description isScreenMobile={isMobileScreen}/>
 
             {/*  */}
-            <div className="sticky w-0 h-12  xl:top-6 right-20 cursor-pointer" onClick={() => { setProfileDetails(state => !state);
-            setScroll(state => !state);
-            setIsMobileScreen(stete => !stete);
-            }}>
+            <div className="sticky w-0 h-12 xl:top-6 right-20 cursor-pointer" onClick={() => setProfileDetails(false)}>
               <div className='bg-slate-600 rounded-[100px] grid place-items-center w-12 h-12'>
                 <div className='h-2 w-7 rounded-full bg-white'></div>
               </div>
             </div>
 
-          </div>
+          </div></div>
         }
 
         <div className=' relative w-44 xl:w-60 bg-white/10 rounded-[30px]'>
@@ -81,7 +78,7 @@ export const AboutMe = () => {
 
         <div className='xl:w-[40%] grid gap-6'>
           <h1 className='text-5xl xl:text-7xl xl:text-start font-bold text-center'>Eu sou João.</h1>
-          <p className='text-3xl xl:text-4xl text-[#A1A1A1] font-bold'>Um estudante de <span className='text-[#E1E1E1]'>Sistemas de Informção</span>. Eu moro em Belo Horizonte - MG <span className='cursor-pointer' onClick={() => setProfileDetails(state => !state)}><SparklesText className={'text-3xl xl:text-4xl'}  text='Mais detalhes...👈'/></span></p>
+          <div className='text-3xl xl:text-4xl text-[#A1A1A1] font-bold'>Um estudante de <span className='text-[#E1E1E1]'>Sistemas de Informção</span>. Eu moro em Belo Horizonte - MG <span className='cursor-pointer' onClick={() => setProfileDetails(state => !state)}><SparklesText className={'text-3xl xl:text-4xl'}  text='Mais detalhes...👈'/></span></div>
         </div>
         
       </section>

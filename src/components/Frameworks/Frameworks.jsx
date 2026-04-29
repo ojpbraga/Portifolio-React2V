@@ -66,7 +66,7 @@ const TechCard = ({ name, icon, color, stars }) => {
 
 const Frameworks = () => {
   return (
-    <section data-scroll-container className="grid place-items-center">
+    <section className="grid place-items-center py-8">
       <div className="w-[90%]  xl:w-[80%] bg-[#1B1B1B] rounded-[30px] flex flex-col p-8 xl:p-10 xl:pt-6 gap-6 overflow-hidden">
 
         <div className="flex items-end justify-between">
