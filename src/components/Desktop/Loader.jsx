@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { Timeline } from 'gsap/gsap-core';
 
-const Loader = ({isVideoLoaded, setExpandScreen}) => {
+const Loader = ({progress, isVideoLoaded, setExpandScreen}) => {
     const [alert, setAlert] = useState(false);
     const loaderBar = useRef();
     gsap.registerPlugin(Timeline);
@@ -15,19 +15,18 @@ const Loader = ({isVideoLoaded, setExpandScreen}) => {
         setExpandScreen(true);
     }
 
+    // Anima a barra de carregamento de acordo com o progresso real
     useEffect(() => {
-        function preloaderAnimation() {
-            gsap.timeline()
-            .from(loaderBar.current, {width:'0%', duration: 1.2, ease:'none'})
-            .from(loaderBar.current, {width:'20%'})
-            .to(loaderBar.current, {width:'70%'})
-            if(isVideoLoaded === true) {
-                gsap.timeline().to(loaderBar.current, {width:'100%'});
-                setAlert(true);
-            }
+        gsap.to(loaderBar.current, {
+            width: `${progress}%`, 
+            duration: 0.5, 
+            ease: 'power2.out'
+        });
+
+        if(isVideoLoaded && progress === 100) {
+            setAlert(true);
         }
-        preloaderAnimation();
-    }, [isVideoLoaded]);
+    }, [progress, isVideoLoaded]);
 
     return (
         <section className='grid place-items-center h-[100vh] w-full bg-black '>
