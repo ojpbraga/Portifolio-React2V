@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCards, Navigation } from 'swiper/modules';
-import { useRef } from 'react';
+import { useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/effect-cards';
 import 'swiper/css/navigation';
@@ -41,8 +41,8 @@ const ArrowIcon = ({ direction }) => (
 );
 
 export default function Slides({ slides }) {
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
+  const [prevEl, setPrevEl] = useState(null);
+  const [nextEl, setNextEl] = useState(null);
 
   return (
     <div className="relative">
@@ -50,11 +50,7 @@ export default function Slides({ slides }) {
         modules={[EffectCards, Navigation]}
         effect="cards"
         slidesPerView={1}
-        navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
-        onBeforeInit={(swiper) => {
-          swiper.params.navigation.prevEl = prevRef.current;
-          swiper.params.navigation.nextEl = nextRef.current;
-        }}
+        navigation={{ prevEl, nextEl }}
         className="w-[85vw] xl:w-full h-full"
       >
         {slides.map(({ bgColor, imgNotebook, title, description, githubLink, figmaLink, siteLink, tags }, index) => (
@@ -128,7 +124,7 @@ export default function Slides({ slides }) {
       {/* Botões de navegação customizados */}
       <div className="flex justify-center gap-3 mt-1">
         <button
-          ref={prevRef}
+          ref={setPrevEl}
           className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/15 hover:border-white/25 hover:scale-105 transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
           aria-label="Slide anterior"
         >
@@ -136,7 +132,7 @@ export default function Slides({ slides }) {
         </button>
 
         <button
-          ref={nextRef}
+          ref={setNextEl}
           className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/15 hover:border-white/25 hover:scale-105 transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
           aria-label="Próximo slide"
         >
