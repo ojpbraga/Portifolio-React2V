@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"E:\\\\GitHub\\\\Portifolio-React2V\" -Force)",
+      "Bash(Select-Object Name, Mode)",
+      "Bash(Get-ChildItem -Path \"E:\\\\GitHub\\\\Portifolio-React2V\" -Recurse -Force)",
+      "Bash(Select-Object FullName)",
+      "Bash(Sort-Object FullName)",
+      "WebFetch(domain:21st.dev)",
+      "WebSearch",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(Start-Process npm *)",
+      "PowerShell(Get-Content *)",
+      "Bash(npx vite *)"
+    ]
+  }
+}

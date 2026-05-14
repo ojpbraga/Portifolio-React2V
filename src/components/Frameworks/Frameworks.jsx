@@ -22,7 +22,7 @@ const Stars = ({ count }) => (
         viewBox="0 0 24 24"
         className="w-2.5 h-2.5"
         fill={i < count ? "#F59E0B" : "none"}
-        stroke={i < count ? "#F59E0B" : "#4B5563"}
+        stroke={i < count ? "#F59E0B" : "#374151"}
         strokeWidth="2"
       >
         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
@@ -31,22 +31,27 @@ const Stars = ({ count }) => (
   </div>
 );
 
-const TechCard = ({ name, icon, color, stars }) => {
+const TechCard = ({ name, icon, color, stars, index }) => {
   const isHighlighted = stars >= 4;
   return (
     <div
-      className={`relative flex flex-col items-center justify-center gap-2 rounded-2xl border p-4 transition-all duration-300 hover:scale-105 cursor-default
+      className={`relative flex flex-col items-center justify-center gap-2 rounded-2xl border p-4
+        transition-all duration-300
+        active:scale-[0.97] cursor-default
         ${isHighlighted
-          ? "border-white/20 shadow-md"
-          : "border-white/8 opacity-70 hover:opacity-100"
+          ? "border-white/15 hover:border-white/30"
+          : "border-white/5 opacity-60 hover:opacity-100 hover:border-white/12"
         }`}
       style={{
-        backgroundColor: `${color}15`,
-        boxShadow: isHighlighted ? `0 0 18px -6px ${color}55` : undefined,
+        backgroundColor: `${color}10`,
+        boxShadow: isHighlighted ? `0 0 24px -8px ${color}40, inset 0 1px 0 rgba(255,255,255,0.08)` : undefined,
+        backdropFilter: "blur(8px)",
+        transitionTimingFunction: "cubic-bezier(0.23, 1, 0.32, 1)",
+        animationDelay: `${index * 40}ms`,
       }}
     >
       {isHighlighted && (
-        <span className="absolute -top-2 -right-2 bg-amber-400 text-black text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none">
+        <span className="absolute -top-2 -right-2 bg-amber-400 text-black text-[9px] font-bold px-1.5 py-0.5 rounded-full leading-none shadow-sm">
           TOP
         </span>
       )}
@@ -56,7 +61,7 @@ const TechCard = ({ name, icon, color, stars }) => {
         className={`object-contain transition-all duration-300 ${isHighlighted ? "w-10 h-10 xl:w-12 xl:h-12" : "w-8 h-8 xl:w-9 xl:h-9"}`}
         onError={(e) => { e.target.style.display = "none"; }}
       />
-      <span className={`text-xs font-semibold tracking-wide ${isHighlighted ? "text-[#E0E0E0]" : "text-[#888]"}`}>
+      <span className={`text-xs font-semibold tracking-wide ${isHighlighted ? "text-white/85" : "text-white/45"}`}>
         {name}
       </span>
       <Stars count={stars} />
@@ -67,15 +72,23 @@ const TechCard = ({ name, icon, color, stars }) => {
 const Frameworks = () => {
   return (
     <section className="grid place-items-center py-8">
-      <div className="w-[90%]  xl:w-[80%] bg-[#1B1B1B] rounded-[30px] flex flex-col p-8 xl:p-10 xl:pt-6 gap-6 overflow-hidden">
-
+      <div className="w-[92%] xl:w-[80%] rounded-[24px] sm:rounded-[30px] flex flex-col p-5 sm:p-8 xl:p-10 xl:pt-6 gap-5 sm:gap-6 overflow-hidden"
+        style={{
+          background: "rgba(255,255,255,0.04)",
+          backdropFilter: "blur(20px) saturate(160%)",
+          border: "1px solid rgba(255,255,255,0.08)",
+          boxShadow: "inset 1px 1px 0 rgba(255,255,255,0.1), 0 24px 48px rgba(0,0,0,0.3)",
+        }}
+      >
         <div className="flex items-end justify-between">
-          <h1 className="font-bold text-[11vw] md:text-[8vw] xl:text-[5vw] leading-none">Frameworks</h1>
+          <h1 className="font-bold text-[13vw] md:text-[8vw] xl:text-[5vw] leading-none text-white">
+            Frameworks
+          </h1>
         </div>
 
         <div className="grid grid-cols-3 sm:grid-cols-4 xl:grid-cols-6 gap-3">
-          {techs.map((tech) => (
-            <TechCard key={tech.name} {...tech} />
+          {techs.map((tech, index) => (
+            <TechCard key={tech.name} {...tech} index={index} />
           ))}
         </div>
 

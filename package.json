@@ -13,6 +13,7 @@
     "@heroui/react": "^2.6.14",
     "@heroui/scroll-shadow": "^2.3.6",
     "@heroui/theme": "^2.4.6",
+    "@paper-design/shaders-react": "^0.0.76",
     "@radix-ui/react-slot": "^1.1.1",
     "@react-spring/three": "^9.7.5",
     "@react-three/fiber": "^8.17.12",

@@ -7,90 +7,83 @@ import email from '/images/email-icon.svg'
 import mapas from '/images/maps-icon.svg'
 import fotos from '/images/fotos-icon.svg'
 import faceTime from '/images/fecetime-icon.svg'
-import calendario from '/images/calendario-icon.svg'
-import contatos from '/images/contatos-icon.svg'
-import notas from '/images/notas-icon.svg'
-import musica from '/images/musica-icon.svg'
-import appletv from '/images/appletv-icon.svg'
-import podcasts from '/images/podcasts-icon.svg'
-import noticias from '/images/noticias-icon.svg'
-import configuracao from '/images/configuracao-icon.svg'
-import pasta from '/images/pasta-icon.svg'
-import trash from '/images/lixo-icon.svg'
 import github from '/public/images/github-icon.png'
 import linkedln from '/public/images/linkedln-icon.svg'
 import gsap from 'gsap'
 import { createRef, useContext, useEffect, useRef } from 'react'
 import { AppsContext } from '@/AppsContext'
-import { toggle } from '@heroui/theme'
 import { Timeline } from 'gsap/gsap-core'
 
 const apps = [
-    { id: 'finder', url: finder },
-    { id: 'launchPad', url: launchPad },
-    { id: 'safari', url: safari },
-    { id: 'mensagens', url: mensagens },
-    { id: 'email', url: email },
-    { id: 'mapas', url: mapas },
-    { id: 'fotos', url: fotos },
+    { id: 'finder',   url: finder },
+    { id: 'launchPad',url: launchPad },
+    { id: 'safari',   url: safari },
+    { id: 'mensagens',url: mensagens },
+    { id: 'email',    url: email },
+    { id: 'mapas',    url: mapas },
+    { id: 'fotos',    url: fotos },
     { id: 'faceTime', url: faceTime },
-    // { id: 'calendario', url: calendario },
-    // { id: 'contatos', url: contatos },
-    { id: 'github', url: github },
+    { id: 'github',   url: github },
     { id: 'linkedln', url: linkedln },
-    // { id: 'notas', url: notas },
-    // { id: 'musica', url: musica },
-    // { id: 'appletv', url: appletv },
-    // { id: 'podcasts', url: podcasts },
-    // { id: 'noticias', url: noticias },
-    // { id: 'configuracao', url: configuracao },
-    // { id: 'pasta', url: pasta },
-    // { id: 'trash', url: trash },
 ];
 
 const Dock = () => {
-    const {data, setData} = useContext(AppsContext);
+    const { data, setData } = useContext(AppsContext);
     const container = useRef();
     gsap.registerPlugin(Timeline);
 
     useEffect(() => {
         setTimeout(() => {
-            gsap.timeline()
-            
-                .to(container.current, {bottom:'0', duration: 0.8, ease:'none'})
-        }, 1200)
+            gsap.timeline().to(container.current, { bottom: '0', duration: 0.8, ease: 'none' });
+        }, 1200);
     }, []);
 
-    // Abre ou fecha componente, quando clicado no item
-    function handleClick({target}) {
+    function handleClick({ target }) {
         const appName = target.id;
-        setData(data => 
-            data.map(app => app.id === appName ? {...app, close:!app.close} : app )
-        )
+        setData(data =>
+            data.map(app => app.id === appName ? { ...app, close: !app.close } : app)
+        );
 
-        if(appName === 'github') window.location.assign('//github.com/ojpbraga');
-        if(appName === 'linkedln') window.location.assign('//linkedin.com/in/ojpbraga/');
-        if(appName === 'email') window.location.assign('//mailto:ojpbraga@gmail.com');
+        if (appName === 'github')  window.open('//github.com/ojpbraga', '_blank');
+        if (appName === 'linkedln') window.open('//linkedin.com/in/ojpbraga/', '_blank');
+        if (appName === 'email')   window.location.assign('mailto:ojpbraga@gmail.com');
 
         openAppAnimation(target);
-    };
+    }
 
     function openAppAnimation(appTarget) {
-        gsap.to(appTarget, {bottom:'20px', width:'4rem', duration: 0.2, ease:'none', onComplete: () => {
-            gsap.to(appTarget, {bottom:'0', width:'3.5rem',  delay: 0.3 });
-        }, });
+        gsap.to(appTarget, {
+            bottom: '16px', duration: 0.18,
+            onComplete: () => gsap.to(appTarget, { bottom: '0', delay: 0.25 }),
+        });
     }
 
     return (
-        <div className='w-[100%] h-28 absolute overflow-hidden bottom-0 grid items-end justify-items-center z-[999999]'>
-
-            <div ref={container} className="glassmorphism relative flex p-1 pb-0 rounded-2xl shadow-md mb-2 bottom-[-100px]">
+        <div className='w-full h-20 sm:h-28 absolute overflow-hidden bottom-0 grid items-end justify-items-center z-[999999]'>
+            <div
+                ref={container}
+                className="glassmorphism relative flex p-1 pb-0 rounded-xl sm:rounded-2xl shadow-md mb-1 sm:mb-2 bottom-[-100px] gap-0.5 sm:gap-0"
+            >
                 {apps.map((app, index) => (
-                    app.id === 'github' || app.id === 'safari' || app.id === 'linkedln' || app.id === 'email' ? <img key={'img_desktop_'+index} src={app.url} id={app.id} className='w-14  cursor-pointer h-full relative' onClick={handleClick} alt="" /> 
-                    : <img key={'img_desktop_'+index} src={app.url} id={app.id} className='w-14 h-full cursor-not-allowed relative' onClick={handleClick} alt="" />
+                    app.id === 'github' || app.id === 'safari' || app.id === 'linkedln' || app.id === 'email'
+                        ? <img
+                            key={'img_' + index}
+                            src={app.url}
+                            id={app.id}
+                            className='w-9 sm:w-11 xl:w-14 h-full cursor-pointer relative transition-none'
+                            onClick={handleClick}
+                            alt=""
+                          />
+                        : <img
+                            key={'img_' + index}
+                            src={app.url}
+                            id={app.id}
+                            className='w-9 sm:w-11 xl:w-14 h-full cursor-not-allowed relative opacity-50'
+                            alt=""
+                          />
                 ))}
             </div>
         </div>
-    )
-}
+    );
+};
 export default Dock;
